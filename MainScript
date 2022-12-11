@@ -2843,6 +2843,35 @@ runcode(function()
 end)
 
 
+runcode(function()
+	local PlayerTp = {["Enabled"] = false}
+    PlayerTp = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
+        ["Name"] = "PlayerTp",
+		["HoverText"] = "epik code",
+        ["Function"] = function(callback)
+            if callback then
+				if entity.isAlive then
+					local Target = nil
+					local Dist = math.huge 
+					for i, v in pairs(Game.Players:GetChildren()) do
+						if v ~= game.Players.LocalPlayer and v.TeamColor ~= game.Players.LocalPlayer.TeamColor then
+							if (game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position - v.Character:WaitForChild("HumanoidRootPart").Position).Magnitude < Dist then
+								Target = v
+								game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
+								game.Players.LocalPlayer.CharacterAdded:wait()
+								game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = Target.Character.HumanoidRootPart.CFrame
+							end
+						end
+					end
+					PlayerTp["ToggleButton"](false)
+				else
+					createwarning("Ape", "Failed To Find HRP", 3)
+					PlayerTp["ToggleButton"](false)
+				end
+			end
+		end
+	})
+end)
 
 
 
