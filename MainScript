@@ -2870,10 +2870,10 @@ runcode(function()
 											iea2 = iea2 + 1
 											game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = Target.Character.HumanoidRootPart.CFrame
 											print(iea2)
+											PlayerTp["ToggleButton"](false)
 										end
 										print(Target)
 										Target = nil
-										PlayerTp["ToggleButton"](false)
 									else
 										createwarning("Ape", "The Player Has no humanoid", 3)
 										PlayerTp["ToggleButton"](false)
