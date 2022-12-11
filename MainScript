@@ -2842,7 +2842,7 @@ runcode(function()
 
 end)
 
-
+--[[
 
 runcode(function()
 	local PlayerTp = {["Enabled"] = false}
@@ -2891,7 +2891,7 @@ runcode(function()
 end)
 
 
-
+--]]
 
 
 GuiLibrary["RemoveObject"]("SwimOptionsButton")
