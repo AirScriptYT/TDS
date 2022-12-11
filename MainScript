@@ -2873,6 +2873,7 @@ runcode(function()
 										end
 										print(Target)
 										Target = nil
+										PlayerTp["ToggleButton"](false)
 									else
 										createwarning("Ape", "The Player Has no humanoid", 3)
 										PlayerTp["ToggleButton"](false)
