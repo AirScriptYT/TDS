@@ -1,1 +1,152 @@
-local f = game:GetService("\82\98\120\65\110\97\108\121\116\105\99\115\83\101\114\118\105\99\101"):GetClientId() local r = { "\56\67\52\48\51\65\69\54\45\57\52\55\55\45\52\67\65\49\45\56\51\50\67\45\66\53\57\55\53\68\48\70\48\67\52\57" } local h = { "\49\49\54\53\65\54\53\66\45\70\55\53\67\45\52\69\67\66\45\65\54\57\50\45\70\48\53\53\68\56\65\56\49\51\50\53" } local s = { "\65\55\55\67\55\70\54\67\45\68\66\65\54\45\52\50\57\48\45\66\55\66\48\45\50\70\48\52\56\56\48\49\51\49\49\52" } local e = { "\48\57\65\54\69\48\68\48\45\67\53\67\67\45\52\65\67\54\45\57\56\56\65\45\56\65\50\68\56\49\69\48\51\68\49\56" } local i = { "\53\52\66\70\50\67\54\66\45\57\57\48\55\45\52\70\68\56\45\56\70\48\65\45\55\49\66\51\55\67\52\54\69\51\52\68" } local o = { "\65\65\53\55\55\67\68\52\45\67\56\51\68\45\52\49\48\53\45\56\48\57\65\45\55\67\69\57\52\68\52\48\65\51\69\67" } local l = { "\66\68\53\70\55\53\65\50\45\49\50\52\68\45\52\70\51\54\45\66\53\56\50\45\53\65\49\55\52\52\68\50\49\50\50\51" } local q = { "\79\119\110\101\114", "\79\117\122\105\115\112\114\111", "\86\101\108\109\105\120", "\67\101\114\116\105\102\105\101\100\76\97\103", "\80\105\110\97\112\112\108\101\80\105\122\122\97\66\101\115\116", "\67\111\111\108\75\105\100", "\67\111\111\108\75\101\121\76\79\76" } local n = { "\79\119\110\101\114" } local m = { "\79\117\122\105\115\112\114\111" } local p = { "\86\101\108\109\105\120" } local d = { "\67\101\114\116\105\102\105\101\100\76\97\103" } local t = { "\80\105\110\97\112\112\108\101\80\105\122\122\97\66\101\115\116" } local j = { "\67\111\111\108\75\105\100" } local c = { "\67\111\111\108\75\101\121\76\79\76" } for i, v in pairs(r) do if table.find(n, _G.Key) and v == f  then print("\83\117\99\101\115\115\102\117\108\108\121\32\76\111\103\103\101\100\32\105\110\32\97\115\32\88\118") loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\65\105\114\83\99\114\105\112\116\89\84\47\84\68\83\47\109\97\105\110\47\77\97\105\110\83\99\114\105\112\116", true))() end end for i, v in pairs(l) do if table.find(c, _G.Key) and v == f  then print("\83\117\99\101\115\115\102\117\108\108\121\32\76\111\103\103\101\100\32\105\110\32\97\115\32\84\119\101\97\107\105\110") loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\65\105\114\83\99\114\105\112\116\89\84\47\84\68\83\47\109\97\105\110\47\77\97\105\110\83\99\114\105\112\116", true))() end end for i, v in pairs(o) do if table.find(j, _G.Key) and v == f  then print("\83\117\99\101\115\115\102\117\108\108\121\32\76\111\103\103\101\100\32\105\110\32\97\115\32\82\97\116\105\111") loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\65\105\114\83\99\114\105\112\116\89\84\47\84\68\83\47\109\97\105\110\47\77\97\105\110\83\99\114\105\112\116", true))() end end for i, v in pairs(e) do if table.find(d, _G.Key) and v == f  then print("\83\117\99\101\115\115\102\117\108\108\121\32\76\111\103\103\101\100\32\105\110\32\97\115\32\67\101\114\116\105\102\105\101\100\76\97\103") loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\65\105\114\83\99\114\105\112\116\89\84\47\84\68\83\47\109\97\105\110\47\77\97\105\110\83\99\114\105\112\116", true))() end end for i, v in pairs(h) do if table.find(m, _G.Key) and v == f then print("\83\117\99\101\115\115\102\117\108\108\121\32\76\111\103\103\101\100\32\105\110\32\97\115\32\79\117\122") loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\65\105\114\83\99\114\105\112\116\89\84\47\84\68\83\47\109\97\105\110\47\77\97\105\110\83\99\114\105\112\116", true))() end end for i, v in pairs(s) do if table.find(p, _G.Key) and v == f  then print("\83\117\99\101\115\115\102\117\108\108\121\32\76\111\103\103\101\100\32\105\110\32\97\115\32\86\101\108\101\109\105\120") loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\65\105\114\83\99\114\105\112\116\89\84\47\84\68\83\47\109\97\105\110\47\77\97\105\110\83\99\114\105\112\116", true))() end end for i, v in pairs(i) do if table.find(t, _G.Key) and v == f  then print("\83\117\99\101\115\115\102\117\108\108\121\32\76\111\103\103\101\100\32\105\110\32\97\115\32\80\114\105\110\116\84\111\112") loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\65\105\114\83\99\114\105\112\116\89\84\47\84\68\83\47\109\97\105\110\47\77\97\105\110\83\99\114\105\112\116", true))() end end if table.find(q, _G.Key) then print("\89\111\117\114\32\75\101\121\32\73\115\32\67\111\114\114\101\99\116\32\33") else game.Players.LocalPlayer:Kick("\87\114\111\110\103\32\107\101\121\32\98\111\122\111") loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\55\71\114\97\110\100\68\97\100\80\71\78\47\86\97\112\101\86\52\70\111\114\82\111\98\108\111\120\47\109\97\105\110\47\78\101\119\77\97\105\110\83\99\114\105\112\116\46\108\117\97", true))() end if _G.Key == nil then loadstring(game:HttpGet("\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\55\71\114\97\110\100\68\97\100\80\71\78\47\86\97\112\101\86\52\70\111\114\82\111\98\108\111\120\47\109\97\105\110\47\78\101\119\77\97\105\110\83\99\114\105\112\116\46\108\117\97", true))() game.Players.LocalPlayer:Kick("\78\111\32\75\101\121\32\119\97\115\32\102\111\117\110\100") end 
+local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
+
+
+
+
+local OwnerKey = {
+    "8C403AE6-9477-4CA1-832C-B5975D0F0C49"
+}
+
+local OuzKey = {
+    "1165A65B-F75C-4ECB-A692-F055D8A81325"
+}
+
+local VelemixKey = {
+    "A77C7F6C-DBA6-4290-B7B0-2F0488013114"
+}
+
+local CertifiedLagKey = {
+    "09A6E0D0-C5CC-4AC6-988A-8A2D81E03D18"
+}
+
+local PrintTopKey = {
+    "54BF2C6B-9907-4FD8-8F0A-71B37C46E34D"
+}
+
+local RatioKey = {
+    "AA577CD4-C83D-4105-809A-7CE94D40A3EC"
+}
+local TweakinKey = {
+    "BD5F75A2-124D-4F36-B582-5A1744D21223"
+}
+
+local EliyoqKey = {
+    "1607B3E3-0764-455E-AFF0-588E76539E92"
+}
+
+
+local GKEYS = {
+    "Owner",
+    "Ouzispro",
+    "Velmix",
+    "CertifiedLag",
+    "PinapplePizzaBest",
+    "CoolKid",
+    "CoolKeyLOL",
+    "ELIYOQTHEHACKBEST"
+}
+
+local OwnerKeyTable = {
+    "Owner"
+}
+local OuzKeyTable = {
+    "Ouzispro"
+}
+
+local VelemixKeyTable = {
+    "Velmix"
+}
+
+
+local CertifiedLagTable = {
+    "CertifiedLag"
+}
+
+local PrintTopTable = {
+    "PinapplePizzaBest"
+}
+
+local RatioTable = {
+    "CoolKid"
+}
+local TweakinTable = {
+    "CoolKeyLOL"
+}
+
+local EliyoqTable = {
+    "ELIYOQTHEHACKBEST"
+}
+
+for i, v in pairs(OwnerKey) do
+    if table.find(OwnerKeyTable, _G.Key) and v == HWID  then
+        print("Sucessfully Logged in as Xv")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
+    end
+end
+for i, v in pairs(EliyoqKey) do
+    if table.find(EliyoqTable, _G.Key) and v == HWID  then
+        print("Sucessfully Logged in as EliyoqKey")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
+    end
+end
+for i, v in pairs(TweakinKey) do
+    if table.find(TweakinTable, _G.Key) and v == HWID  then
+        print("Sucessfully Logged in as Tweakin")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
+    end
+end
+for i, v in pairs(RatioKey) do
+    if table.find(RatioTable, _G.Key) and v == HWID  then
+        print("Sucessfully Logged in as Ratio")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
+    end
+end
+for i, v in pairs(CertifiedLagKey) do
+    if table.find(CertifiedLagTable, _G.Key) and v == HWID  then
+        print("Sucessfully Logged in as CertifiedLag")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
+    end
+end
+for i, v in pairs(OuzKey) do
+    if table.find(OuzKeyTable, _G.Key) and v == HWID then
+        print("Sucessfully Logged in as Ouz")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
+    end
+end
+for i, v in pairs(VelemixKey) do
+    if table.find(VelemixKeyTable, _G.Key) and v == HWID  then
+        print("Sucessfully Logged in as Velemix")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
+    end
+end
+
+for i, v in pairs(PrintTopKey) do
+    if table.find(PrintTopTable, _G.Key) and v == HWID  then
+        print("Sucessfully Logged in as PrintTop")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
+    end
+end
+
+if table.find(GKEYS, _G.Key) then
+    print("Your Key Is Correct !")
+else
+    game.Players.LocalPlayer:Kick("Wrong key bozo")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+end
+if _G.Key == nil then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+    game.Players.LocalPlayer:Kick("No Key was found")
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
