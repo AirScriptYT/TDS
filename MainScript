@@ -2851,11 +2851,11 @@ runcode(function()
 		["HoverText"] = "epik code",
         ["Function"] = function(callback)
             if callback then
-				if entity.isAlive then
+				if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
 					local Dist = math.huge 
 					local Target = nil
 					for i, v in pairs(game.Players:GetChildren()) do
-						if v ~= game.Players.LocalPlayer then
+						if v ~= game.Players.LocalPlayer and v.TeamColor ~= game.Players.LocalPlayer.TeamColor then
 							if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") and v.Character:WaitForChild("HumanoidRootPart") then
 								if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude < Dist then
 									Target = v
