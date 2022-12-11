@@ -1,6 +1,21 @@
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
+local HwidWhitelist = {
+    "8C403AE6-9477-4CA1-832C-B5975D0F0C49", -- Mine
+    "1165A65B-F75C-4ECB-A692-F055D8A81325", -- Ouz
+    "A77C7F6C-DBA6-4290-B7B0-2F0488013114", -- Velmix
+    "09A6E0D0-C5CC-4AC6-988A-8A2D81E03D18", -- CertfiedLag
+    "54BF2C6B-9907-4FD8-8F0A-71B37C46E34D", -- Printtop
+    "AA577CD4-C83D-4105-809A-7CE94D40A3EC", -- Ratio
+    "BD5F75A2-124D-4F36-B582-5A1744D21223", -- Tweakin
+    "1607B3E3-0764-455E-AFF0-588E76539E92" -- EliyoqKey
+}
 
+if table.find(HwidWhitelist, HWID) then
+    print("Found Hwid In List")
+else
+    game.Players.LocalPlayer:Kick("Error : Failed To Find Hwid In List")
+end
 
 
 local OwnerKey = {
