@@ -2874,8 +2874,6 @@ runcode(function()
 									Target = nil
 									PlayerTp ["ToggleButton"](false)
 								end
-							else
-								PlayerTp ["ToggleButton"](false)
 							end
 							return Target
 						end
