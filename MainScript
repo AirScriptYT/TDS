@@ -2867,7 +2867,13 @@ runcode(function()
 									while iea2 <= 150 do
 										task.wait(0.00001)
 										iea2 = iea2 + 1
-										game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = Target.Character.HumanoidRootPart.CFrame
+										for i, v in pairs(Target.Character:GetChildren()) do
+											if v.Name == "HumanoidRootPart" then
+												game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = Target.Character.HumanoidRootPart.CFrame
+											else
+												PlayerTp ["ToggleButton"](false)
+											end
+										end
 										print(iea2)
 									end
 									print(Target)
