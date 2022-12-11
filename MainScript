@@ -2851,7 +2851,7 @@ runcode(function()
 		["HoverText"] = "epik code",
         ["Function"] = function(callback)
             if callback then
-				task.spawn(function()
+				if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
 					local Dist = math.huge 
 					local Target = nil
 					for i, v in pairs(game.Players:GetChildren()) do
@@ -2882,9 +2882,9 @@ runcode(function()
 						end
 					end
 					PlayerTp["ToggleButton"](false)
-				end)
-			else
-				PlayerTp["ToggleButton"](false)
+				else
+					PlayerTp["ToggleButton"](false)
+				end
 			end
 		end
 	})
