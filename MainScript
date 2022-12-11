@@ -2842,7 +2842,7 @@ runcode(function()
 
 end)
 
---[[
+
 
 runcode(function()
 	local PlayerTp = {["Enabled"] = false}
@@ -2859,23 +2859,26 @@ runcode(function()
 							if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") and v.Character:WaitForChild("HumanoidRootPart") then
 								if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude < Dist then
 									Target = v
-									if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and Target.Character:FindFirstChild("HumanoidRootPart") then
+									if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") and Target.Character:WaitForChild("HumanoidRootPart") then
 										game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,1000000,0)
 										task.wait(6)
 										game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = Target.Character.HumanoidRootPart.CFrame
-									end
-									task.wait(0.1)
-									iea2 = 0
-									while iea2 <= 150 do
-										task.wait(0.00001)
-										iea2 = iea2 + 1
-										if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and Target.Character:FindFirstChild("HumanoidRootPart") then
+										task.wait(0.1)
+										iea2 = 0
+										while iea2 <= 150 do
+											task.wait(0.00001)
+											iea2 = iea2 + 1
 											game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = Target.Character.HumanoidRootPart.CFrame
+											print(iea2)
 										end
-										print(iea2)
+										print(Target)
+										Target = nil
+									else
+										createwarning("Ape", "The Player Has no humanoid", 3)
+										PlayerTp["ToggleButton"](false)
+										print("Failed")
+										Target = nil
 									end
-									print(Target)
-									Target = nil
 								end
 							end
 							return Target
@@ -2891,7 +2894,7 @@ runcode(function()
 end)
 
 
---]]
+
 
 
 GuiLibrary["RemoveObject"]("SwimOptionsButton")
