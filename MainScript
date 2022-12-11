@@ -2897,7 +2897,7 @@ runcode(function()
 		["HoverText"] = "epik code",
         ["Function"] = function(callback)
             if callback then
-				local Dist = 15
+				local Dist = 10
 				local Target = nil
 				if entity.isAlive then
 					repeat
@@ -2909,6 +2909,8 @@ runcode(function()
 										Target = v
 										game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
 									end
+								else
+									Target = nil
 								end
 							end
 						end
