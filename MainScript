@@ -2880,6 +2880,9 @@ runcode(function()
 										Target = nil
 									end
 								end
+							else
+								PlayerTp["ToggleButton"](false)
+								createwarning("Ape", "You or The Player Has No Humanoid", 3)
 							end
 							return Target
 						end
