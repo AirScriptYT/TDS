@@ -2860,8 +2860,8 @@ runcode(function()
 								if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude < Dist then
 									Target = v
 									if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") and Target.Character:WaitForChild("HumanoidRootPart") then
-										game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,10000000,0)
-										task.wait(6)
+										game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,1000000,0)
+										task.wait(5)
 										game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = Target.Character.HumanoidRootPart.CFrame
 										task.wait(0.1)
 										iea2 = 0
