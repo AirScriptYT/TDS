@@ -2890,6 +2890,40 @@ runcode(function()
 	})
 end)
 
+runcode(function()
+	local TpAura = {["Enabled"] = false}
+    TpAura = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
+        ["Name"] = "HypixelFly",
+		["HoverText"] = "epik code",
+        ["Function"] = function(callback)
+            if callback then
+				local Dist = 5
+				local Target = nil
+				if entity.isAlive then
+					repeat
+						task.wait(0.00001)
+						for i, v in pairs(game.Players:GetChildren()) do
+							if v ~= game.Players.LocalPlayer and v.TeamColor ~= game.Players.LocalPlayer.TeamColor then
+								if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("HumanoidRootPart") then
+									if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude < Dist then
+										Target = v
+										game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
+									end
+								end
+							end
+						end
+					until (not TpAura["Enabled"])
+				else
+					TpAura["ToggleButton"](false)
+				end
+			end
+		end
+	})
+end)
+
+
+
+
 
 
 
@@ -2929,7 +2963,6 @@ createwarning("Ape ", "Thank You For Using Ape", 3)
 
 local plr1 = game.Players.LocalPlayer
 createwarning("Ape", "Logged in as "..(plr1.Name or plr1.DisplayName), 3)
-
 
 
 
