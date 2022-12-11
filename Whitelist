@@ -92,6 +92,17 @@ local EliyoqTable = {
     "ELIYOQTHEHACKBEST"
 }
 
+if table.find(GKEYS, _G.Key) then
+    print("Your Key Is Correct !")
+else
+    game.Players.LocalPlayer:Kick("Wrong key bozo")
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+end
+if _G.Key == nil then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
+    game.Players.LocalPlayer:Kick("No Key was found")
+end
+
 for i, v in pairs(OwnerKey) do
     if table.find(OwnerKeyTable, _G.Key) and v == HWID  then
         print("Sucessfully Logged in as Xv")
@@ -142,16 +153,7 @@ for i, v in pairs(PrintTopKey) do
     end
 end
 
-if table.find(GKEYS, _G.Key) then
-    print("Your Key Is Correct !")
-else
-    game.Players.LocalPlayer:Kick("Wrong key bozo")
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
-end
-if _G.Key == nil then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua", true))()
-    game.Players.LocalPlayer:Kick("No Key was found")
-end
+
 
 
 
