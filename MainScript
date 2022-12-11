@@ -2848,7 +2848,7 @@ runcode(function()
 	local PlayerTp = {["Enabled"] = false}
     PlayerTp = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
         ["Name"] = "PlayerTp",
-		["HoverText"] = "epik code",
+		["HoverText"] = "TelePorts To The Closes Player Alive",
         ["Function"] = function(callback)
             if callback then
 				if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
@@ -2872,8 +2872,11 @@ runcode(function()
 											print(iea2)
 										end
 										print(Target)
+										if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = Target.Character.HumanoidRootPart.CFrame then
+											PlayerTp["ToggleButton"](false)
+										end
+										createwarning("Ape", "Teleported to"..Target, 3)
 										Target = nil
-										PlayerTp["ToggleButton"](false)
 									else
 										createwarning("Ape", "The Player Has no humanoid", 3)
 										PlayerTp["ToggleButton"](false)
