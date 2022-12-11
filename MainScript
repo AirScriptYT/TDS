@@ -2871,14 +2871,13 @@ runcode(function()
 										print(iea2)
 									end
 									print(Target)
-									createwarning("Ape", "Teleported To "..(plr1.Name or plr1.DisplayName), 3)
 									Target = nil
+									PlayerTp ["ToggleButton"](false)
 								end
 							end
 							return Target
 						end
 					end
-					PlayerTp ["ToggleButton"](false)
 				else
 					PlayerTp ["ToggleButton"](false)
 				end
