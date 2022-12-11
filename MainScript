@@ -2388,19 +2388,13 @@ runcode(function()
 		["HoverText"] = "By enabling this u support ape 👌👌👌👌",
         ["Function"] = function(callback)
             if callback then
-				createwarning("Ape v6", "Thanks", 10)
-				getgenv().ChannelSuport = true;
-				while wait(SupportDEL) do
-					if getgenv().ChannelSuport == true then
-						game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Ape > V3pe ","All")
-					end
-				end
-			else
-				getgenv().ChannelSuport = false;
+				repeat
+					task.wait(SupportDEL)
+					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Ape > V3pe ","All")
+				until (not Yt["Enabled"])
 			end
 		end
 	})
-
 
 
 	SupportDEL = Yt.CreateSlider({
