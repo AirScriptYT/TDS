@@ -2919,6 +2919,15 @@ runcode(function()
 								game.workspace.Gravity = 192.6
 							end
 							repeat
+								task.wait()
+								local mag = workspace:Raycast(entity.character.HumanoidRootPart.Position, Vector3.new(0, -32, 0), blockraycast)
+								if mag then
+									if ClickTp["Enabled"] then
+										ClickTp["ToggleButton"](false)
+									end
+								end
+							until (not ClickTp["Enabled"])
+							repeat
 								task.wait(0.01)
 								if OriginalPos > OriginalPos + 10000 then
 									iea = 0
@@ -2935,15 +2944,6 @@ runcode(function()
 							if game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame >= CFrame.new(mousePos) + Vector3.new(0,2,0)  then
 								return mousePos
 							end
-							repeat
-								task.wait()
-								local mag = workspace:Raycast(entity.character.HumanoidRootPart.Position, Vector3.new(0, -32, 0), blockraycast)
-								if mag then
-									if ClickTp["Enabled"] then
-										ClickTp["ToggleButton"](false)
-									end
-								end
-							until (not ClickTp["Enabled"])
 						until (not ClickTp["Enabled"])
 					end
 				else
