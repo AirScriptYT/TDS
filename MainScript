@@ -2855,7 +2855,7 @@ runcode(function()
 									Target = v
 									if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") and Target.Character:WaitForChild("HumanoidRootPart") then
 										game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,10000000,0)
-										task.wait(0.1)
+										task.wait(6)
 										game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = Target.Character.HumanoidRootPart.CFrame
 										task.wait(0.1)
 										iea2 = 0
@@ -2908,7 +2908,7 @@ runcode(function()
 					task.wait(10)
 					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(mousePos) + Vector3.new(0,2,0)
 					iea = 0
-					while iea <= 250 do
+					while iea <= 100 do
 						task.wait(0.00001)
 						iea = iea + 1
 						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(mousePos) + Vector3.new(0,2,0)
@@ -2916,10 +2916,10 @@ runcode(function()
 						task.wait(0.1)
 						game.workspace.Gravity = 192.6
 					end
+					ClickTp["ToggleButton"](false)
 					if game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame >= CFrame.new(mousePos) + Vector3.new(0,2,0)  then
 						return mousePos
 					end
-					ClickTp["ToggleButton"](false)
 				else
 					ClickTp["ToggleButton"](false)
 				end
