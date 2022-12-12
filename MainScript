@@ -2921,10 +2921,11 @@ runcode(function()
 							return mousePos
 						end
 					end
-					ClickTp["ToggleButton"](false)
-				else
-					iea = 0
 				end
+			else
+				continue
+				iea = 0
+				mousePos = nil
 			end
 		end
 	})
