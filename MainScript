@@ -2903,12 +2903,21 @@ runcode(function()
 					local mouse = Player:GetMouse()
 					task.wait(0.5)
 					if ClickTp["Enabled"] then
-						repeat
-							task.wait(0.1)
-							local mousePos = mouse.Hit.p
-							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,100000,0)
-							task.wait(10)
+						task.wait(0.1)
+						local mousePos = mouse.Hit.p
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,100000,0)
+						task.wait(10)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(mousePos) + Vector3.new(0,2,0)
+						iea = 0
+						while iea <= 250 do
+							task.wait(0.00001)
+							iea = iea + 1
 							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(mousePos) + Vector3.new(0,2,0)
+							game.workspace.Gravity = 0
+							task.wait(0.1)
+							game.workspace.Gravity = 192.6
+						end
+						if OriginalPos > OriginalPos + 10000 then
 							iea = 0
 							while iea <= 250 do
 								task.wait(0.00001)
@@ -2918,33 +2927,22 @@ runcode(function()
 								task.wait(0.1)
 								game.workspace.Gravity = 192.6
 							end
-							if OriginalPos > OriginalPos + 10000 then
-								iea = 0
-								while iea <= 250 do
-									task.wait(0.00001)
-									iea = iea + 1
-									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(mousePos) + Vector3.new(0,2,0)
-									game.workspace.Gravity = 0
-									task.wait(0.1)
-									game.workspace.Gravity = 192.6
+						end
+						if game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame >= CFrame.new(mousePos) + Vector3.new(0,2,0)  then
+							return mousePos
+						end
+						repeat
+							task.wait()
+							local mag = workspace:Raycast(entity.character.HumanoidRootPart.Position, Vector3.new(0, -32, 0), blockraycast)
+							if mag then
+								if ClickTp["Enabled"] then
+									ClickTp["ToggleButton"](false)
 								end
 							end
-							if game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame >= CFrame.new(mousePos) + Vector3.new(0,2,0)  then
-								return mousePos
-							end
-							repeat
-								task.wait()
-								local mag = workspace:Raycast(entity.character.HumanoidRootPart.Position, Vector3.new(0, -32, 0), blockraycast)
-								if mag then
-									if ClickTp["Enabled"] then
-										ClickTp["ToggleButton"](false)
-									end
-								end
-							until (not ClickTp["Enabled"])
 						until (not ClickTp["Enabled"])
 					end
 				else
-					ClickTp["ToggleButton"](false)
+					iea = 0
 				end
 			end
 		end
