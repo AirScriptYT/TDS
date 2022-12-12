@@ -2930,8 +2930,6 @@ runcode(function()
 										task.wait(0.1)
 										game.workspace.Gravity = 192.6
 									end
-								else
-									OriginalPos = nil
 								end
 							until(OriginalPos >= 10000)
 							if game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame == CFrame.new(mousePos) + Vector3.new(0,2,0)  then
@@ -2950,6 +2948,7 @@ runcode(function()
 					until (not ClickTp["Enabled"])
 				else
 					ClickTp["ToggleButton"](false)
+					OriginalPos = nil
 				end
 			end
 		end
