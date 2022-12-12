@@ -2898,25 +2898,8 @@ runcode(function()
         ["Function"] = function(callback)
             if callback then
 				if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-					local OriginalPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y
-					local Player = game.Players.LocalPlayer
-					local mouse = Player:GetMouse()
-					task.wait(0.5)
-					task.wait(0.1)
-					local mousePos = mouse.Hit.p
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,100000,0)
-					task.wait(10)
-					game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(mousePos) + Vector3.new(0,2,0)
-					iea = 0
-					while iea <= TimesCLICKTP do
-						task.wait(0.00001)
-						iea = iea + 1
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(mousePos) + Vector3.new(0,2,0)
-						game.workspace.Gravity = 0
-						task.wait(0.1)
-						game.workspace.Gravity = 192.6
-					end
-					return mousePos
+					_G.Times = TimesCLICKTP
+					loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MouseTp", true))()
 					ClickTp["ToggleButton"](false)
 				else
 					ClickTp["ToggleButton"](false)
