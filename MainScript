@@ -2898,22 +2898,12 @@ runcode(function()
         ["Function"] = function(callback)
             if callback then
 				if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-					_G.Times = TimesCLICKTP
 					loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MouseTp", true))()
 					ClickTp["ToggleButton"](false)
 				else
 					ClickTp["ToggleButton"](false)
 				end
 			end
-		end
-	})
-	TimesCLICKTP = ClickTp.CreateSlider({
-		["Name"] = "TPBypass",
-		["Min"] = 20,
-		["Max"] = 100,
-		["Default"] = 20,
-		["Function"] = function(val)
-			TimesCLICKTP = val
 		end
 	})
 end)
