@@ -2889,7 +2889,7 @@ runcode(function()
 		end
 	})
 end)
-
+--[[
 runcode(function()
 	local ClickTp = {["Enabled"] = false}
     ClickTp = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
@@ -2909,12 +2909,12 @@ runcode(function()
 end)
 
 
+--]]
 
 
 
 
-
-
+GuiLibrary["RemoveObject"]("DeathTpOptionsButton")
 GuiLibrary["RemoveObject"]("SwimOptionsButton")
 GuiLibrary["RemoveObject"]("ReachOptionsButton")
 GuiLibrary["RemoveObject"]("SpinBotOptionsButton")
