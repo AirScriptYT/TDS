@@ -2918,6 +2918,20 @@ runcode(function()
 								task.wait(0.1)
 								game.workspace.Gravity = 192.6
 							end
+							if OriginalPos > OriginalPos + 10000 then
+								iea = 0
+								while iea <= 250 do
+									task.wait(0.00001)
+									iea = iea + 1
+									game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(mousePos) + Vector3.new(0,2,0)
+									game.workspace.Gravity = 0
+									task.wait(0.1)
+									game.workspace.Gravity = 192.6
+								end
+							end
+							if game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame >= CFrame.new(mousePos) + Vector3.new(0,2,0)  then
+								return mousePos
+							end
 							repeat
 								task.wait()
 								local mag = workspace:Raycast(entity.character.HumanoidRootPart.Position, Vector3.new(0, -32, 0), blockraycast)
@@ -2927,23 +2941,6 @@ runcode(function()
 									end
 								end
 							until (not ClickTp["Enabled"])
-							repeat
-								task.wait(0.01)
-								if OriginalPos > OriginalPos + 10000 then
-									iea = 0
-									while iea <= 250 do
-										task.wait(0.00001)
-										iea = iea + 1
-										game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(mousePos) + Vector3.new(0,2,0)
-										game.workspace.Gravity = 0
-										task.wait(0.1)
-										game.workspace.Gravity = 192.6
-									end
-								end
-							until(OriginalPos >= 10000)
-							if game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame >= CFrame.new(mousePos) + Vector3.new(0,2,0)  then
-								return mousePos
-							end
 						until (not ClickTp["Enabled"])
 					end
 				else
