@@ -2921,6 +2921,7 @@ runcode(function()
 							return mousePos
 						end
 					end
+					ClickTp["ToggleButton"](false)
 				else
 					iea = 0
 				end
