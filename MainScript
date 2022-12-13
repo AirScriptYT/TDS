@@ -2889,7 +2889,8 @@ runcode(function()
 		end
 	})
 end)
---[[
+
+
 runcode(function()
 	local ClickTp = {["Enabled"] = false}
     ClickTp = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
@@ -2898,18 +2899,57 @@ runcode(function()
         ["Function"] = function(callback)
             if callback then
 				if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-					loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MouseTp", true))()
-					ClickTp["ToggleButton"](false)
+					local OriginalPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y
+					local Player = game.Players.LocalPlayer
+					local mouse = Player:GetMouse()
+					local mousePos = mouse.Hit.p
+					if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - mousePos).Magnitude < Dist1 then
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,100000,0)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,100000,0)
+						task.wait(10)
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(mousePos) + Vector3.new(0,2,0)
+						iea = 0
+						while iea <= TpTimes do
+							task.wait(0.00001)
+							iea = iea + 1
+							game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(mousePos) + Vector3.new(0,2,0)
+							game.workspace.Gravity = 0
+							task.wait(0.1)
+							game.workspace.Gravity = 192.6
+						end
+						return mousePos
+						ClickTp["ToggleButton"](false)
+					else
+						createwarning("Ape", "Too Far To Teleport", 3)
+						ClickTp["ToggleButton"](false)
+					end
 				else
+					createwarning("Ape", "Failed To Find Humanoid Root Part", 3)
 					ClickTp["ToggleButton"](false)
 				end
 			end
 		end
 	})
+	Dist1 = ClickTp.CreateSlider({
+		["Name"] = "Distance",
+		["Min"] = 100,
+		["Max"] = 200,
+		["Default"] = 200,
+		["Function"] = function(val)
+			Dist1 = val
+		end
+	})
+	TpTimes = ClickTp.CreateSlider({
+		["Name"] = "Ammout",
+		["Min"] = 20,
+		["Max"] = 150,
+		["Default"] = 20,
+		["Function"] = function(val)
+			TpTimes = val
+		end
+	})
 end)
 
-
---]]
 
 
 
