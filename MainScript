@@ -2914,6 +2914,32 @@ end)
 
 
 
+
+runcode(function()
+	local DeathTp1 = {["Enabled"] = false}
+    DeathTp1 = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
+        ["Name"] = "DeathTp",
+		["HoverText"] = "TelePorts To The Point of the mouse",
+        ["Function"] = function(callback)
+            if callback then
+				local Player = game.Players.LocalPlayer
+				local mouse = Player:GetMouse()
+				local mousePos = mouse.Hit.p
+				for i, v in pairs(game.Players:GetChildren()) do
+					if v == Player then
+						game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
+						Player.CharacterAdded:Wait()
+						game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(mousePos) + Vector3.new(0,2,0)
+						DeathTp1["ToggleButton"](false)
+						createwarning("Ape", "Character Tped To"..mousePos, 3)
+					end
+				end
+			end
+		end
+	})
+end)
+
+
 GuiLibrary["RemoveObject"]("DeathTPOptionsButton")
 GuiLibrary["RemoveObject"]("SwimOptionsButton")
 GuiLibrary["RemoveObject"]("ReachOptionsButton")
