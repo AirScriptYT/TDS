@@ -97,7 +97,7 @@ if table.find(GKEYS, _G.Key) then
         end
     end
     for i, v in pairs(VelemixKey) do
-        if v == HWID and _G.Key == "Velemix" then
+        if v == HWID then
             print("Logged In as Velmix")
             loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
         elseif v == HWID and _G.Key ~= "Velemix" then
