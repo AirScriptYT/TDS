@@ -3,7 +3,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 local GKEYS = {
     "Owner",
     "Ouzispro",
-    "velemixApev6bedwars#6969",
+    "Velemix",
     "CertifiedLag",
     "PinapplePizzaBest",
     "CoolKid",
@@ -97,10 +97,10 @@ if table.find(GKEYS, _G.Key) then
         end
     end
     for i, v in pairs(VelemixKey) do
-        if v == HWID and _G.Key == "velemixApev6bedwars#6969" then
+        if v == HWID and _G.Key == "Velemix" then
             print("Logged In as Velmix")
             loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
-        elseif v == HWID and _G.Key ~= "velemixApev6bedwars#6969" then
+        elseif v == HWID and _G.Key ~= "Velemix" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
             game.Players.LocalPlayer:Kick("Incorrect Key")
         end
