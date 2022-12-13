@@ -2899,6 +2899,7 @@ runcode(function()
         ["Function"] = function(callback)
             if callback then
 				if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+					local Dist1 = 200
 					local OriginalPos = game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y
 					local Player = game.Players.LocalPlayer
 					local mouse = Player:GetMouse()
@@ -2928,15 +2929,6 @@ runcode(function()
 					ClickTp["ToggleButton"](false)
 				end
 			end
-		end
-	})
-	Dist1 = ClickTp.CreateSlider({
-		["Name"] = "Distance",
-		["Min"] = 100,
-		["Max"] = 200,
-		["Default"] = 200,
-		["Function"] = function(val)
-			Dist1 = val
 		end
 	})
 	TpTimes = ClickTp.CreateSlider({
