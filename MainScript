@@ -2931,7 +2931,7 @@ runcode(function()
 						Player.CharacterAdded:Wait()
 						game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(mousePos) + Vector3.new(0,2,0)
 						DeathTp1["ToggleButton"](false)
-						createwarning("Ape", "Character Tped To "..(mousePos), 3)
+						createwarning("Ape", "Character Teleported", 3)
 					end
 				end
 			end
