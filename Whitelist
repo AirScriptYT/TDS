@@ -10,7 +10,8 @@ local GKEYS = {
     "CoolKeyLOL",
     "ELIYOQTHEHACKBEST",
     "CorradeKey",
-    "Xzyn"
+    "Xzyn",
+    "flopy"
 }
 
 local OwnerKey = {
@@ -51,6 +52,9 @@ local EliyoqKey = {
 local CorradeKey = {
     "DDBEAD82-7FA1-41FE-8E7A-7600A642F69C"
 }
+local FloppyKey = {
+    "24BE1051-ADEF-4CF8-8DE3-51DA5E52A43F"
+}
 
 local HwidWhitelist = {
     "8C403AE6-9477-4CA1-832C-B5975D0F0C49", -- Mine
@@ -62,7 +66,8 @@ local HwidWhitelist = {
     "BD5F75A2-124D-4F36-B582-5A1744D21223", -- Tweakin
     "1607B3E3-0764-455E-AFF0-588E76539E92",-- EliyoqKey
     "DDBEAD82-7FA1-41FE-8E7A-7600A642F69C", -- Corrade
-    "CBB67693-3958-47BD-B96C-33D0D594BC0A" -- Xzyn
+    "CBB67693-3958-47BD-B96C-33D0D594BC0A", -- Xzyn
+    "24BE1051-ADEF-4CF8-8DE3-51DA5E52A43F" -- Floppy
 }
 
 if table.find(HwidWhitelist, HWID) then
@@ -83,6 +88,15 @@ if table.find(GKEYS, _G.Key) then
             print("Logged in as xv")
             loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
         elseif v == HWID and _G.Key ~= "Owner" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
+            game.Players.LocalPlayer:Kick("Incorrect Key")
+        end
+    end
+    for i, v in pairs(FloppyKey) do
+        if v == HWID and _G.Key == "flopy" then
+            print("Logged In as FloppyKey")
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
+        elseif v == HWID and _G.Key ~= "flopy" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
             game.Players.LocalPlayer:Kick("Incorrect Key")
         end
