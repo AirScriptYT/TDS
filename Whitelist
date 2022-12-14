@@ -114,7 +114,7 @@ if table.find(GKEYS, _G.Key) then
         if v == HWID and _G.Key == "easportsisbad" then
             print("Logged In as Velemix")
             loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
-        elseif v == HWID and _G.Key ~= "easportsisbad" then
+        elseif _G.Key ~= "easportsisbad" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
             game.Players.LocalPlayer:Kick("Incorrect Key")
         end
