@@ -3,7 +3,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 local GKEYS = {
     "Owner",
     "Ouzispro",
-    "Velemix",
+    "easportsisbad",
     "CertifiedLag",
     "PinapplePizzaBest",
     "CoolKid",
@@ -59,7 +59,7 @@ local FloppyKey = {
 local HwidWhitelist = {
     "8C403AE6-9477-4CA1-832C-B5975D0F0C49", -- Mine
     "1165A65B-F75C-4ECB-A692-F055D8A81325", -- Ouz
-    "A77C7F6C-DBA6-4290-B7B0-2F0488013114", -- Velmix
+    "A77C7F6C-DBA6-4290-B7B0-2F0488013114", -- Velemix
     "09A6E0D0-C5CC-4AC6-988A-8A2D81E03D18", -- CertfiedLag
     "54BF2C6B-9907-4FD8-8F0A-71B37C46E34D", -- Printtop
     "AA577CD4-C83D-4105-809A-7CE94D40A3EC", -- Ratio
@@ -111,10 +111,10 @@ if table.find(GKEYS, _G.Key) then
         end
     end
     for i, v in pairs(VelemixKey) do
-        if v == HWID then
-            print("Logged In as Velmix")
+        if v == HWID and _G.Key == "easportsisbad" then
+            print("Logged In as Velemix")
             loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
-        elseif v == HWID and _G.Key ~= "Velemix" then
+        elseif v == HWID and _G.Key ~= "easportsisbad" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
             game.Players.LocalPlayer:Kick("Incorrect Key")
         end
