@@ -2922,16 +2922,7 @@ runcode(function()
 	})
 end)
 
-local Player = game.Players.LocalPlayer
-local HealthIndicator = true
-repeat
-	task.wait()
-	if HealthIndicator == true and Player.Character.Humanoid.Health < 45 then
-		task.wait(0.1)
-		createwarning("Ape", "Low Health !", 3)
-		task.wait(10)
-	end
-until (HealthIndicator == false)
+
 
 GuiLibrary["RemoveObject"]("DeathTPOptionsButton")
 GuiLibrary["RemoveObject"]("SwimOptionsButton")
