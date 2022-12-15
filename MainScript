@@ -2922,6 +2922,26 @@ runcode(function()
 	})
 end)
 
+runcode(function()
+	local HealthIndicator = {["Enabled"] = false}
+    HealthIndicator = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
+        ["Name"] = "HealthIndicator",
+		["HoverText"] = "Kinda insane B)",
+        ["Function"] = function(callback)
+            if callback then
+				local Player = game.Players.LocalPlayer
+				repeat
+					task.wait()
+					if HealthIndicator["Enabled"] and Player.Character.Humanoid.Health < 45 then
+						task.wait(0.1)
+						createwarning("Ape", "Low Health !", 3)
+						task.wait(10)
+					end
+				until (not HealthIndicator["Enabled"])
+			end
+		end
+	})
+end)
 
 GuiLibrary["RemoveObject"]("DeathTPOptionsButton")
 GuiLibrary["RemoveObject"]("SwimOptionsButton")
