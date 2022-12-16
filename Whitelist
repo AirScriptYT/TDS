@@ -11,7 +11,8 @@ local GKEYS = {
     "ELIYOQTHEHACKBEST",
     "CorradeKey",
     "Xzyn",
-    "flopy"
+    "Floppy",
+    "NoKey"
 }
 
 local OwnerKey = {
@@ -84,20 +85,20 @@ if _G.Key == nil then
 end
 
 if table.find(GKEYS, _G.Key) then
+    for i, v in pairs(FloppyKey) do
+        if v == HWID and _G.Key == "Floppy" then
+            print("Logged In as Floppy")
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
+        elseif v == HWID and _G.Key ~= "Floppy" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
+            game.Players.LocalPlayer:Kick("Incorrect Key")
+        end
+    end
     for i, v in pairs(OwnerKey) do
         if v == HWID and _G.Key == "Owner" then
             print("Logged in as xv")
             loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
         elseif v == HWID and _G.Key ~= "Owner" then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
-            game.Players.LocalPlayer:Kick("Incorrect Key")
-        end
-    end
-    for i, v in pairs(FloppyKey) do
-        if v == HWID and _G.Key == "flopy" then
-            print("Logged In as Floppy")
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
-        elseif v == HWID and _G.Key ~= "flopy" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
             game.Players.LocalPlayer:Kick("Incorrect Key")
         end
