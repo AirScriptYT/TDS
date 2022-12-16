@@ -2922,7 +2922,34 @@ runcode(function()
 	})
 end)
 
-
+runcode(function()
+	local MassNuker = {["Enabled"] = false}
+    MassNuker = GuiLibrary["ObjectsThatCanBeSaved"]["WorldWindow"]["Api"].CreateOptionsButton({
+        ["Name"] = "MassNuker",
+		["HoverText"] = "TelePorts To a bed",
+        ["Function"] = function(callback)
+            if callback then
+				if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") or game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+					local Player = game.Players.LocalPlayer
+					for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+						if v.Name == "bed" then
+							if v.Covers.BrickColor ~= game.Players.LocalPlayer.Team.TeamColor then
+								game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
+								Player.CharacterAdded:Wait()
+								game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = v.CFrame + Vector3.new(0,2,0)
+								task.wait(3.5)
+							end
+						end
+					end
+					MassNuker["ToggleButton"](false)
+				else
+					createwarning("Ape", "Failed To Find Character", 3)
+					MassNuker["ToggleButton"](false)
+				end
+			end
+		end
+	})
+end)
 
 GuiLibrary["RemoveObject"]("DeathTPOptionsButton")
 GuiLibrary["RemoveObject"]("SwimOptionsButton")
