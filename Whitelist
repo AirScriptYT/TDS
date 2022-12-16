@@ -57,7 +57,6 @@ local FloppyKey = {
 }
 
 local HwidWhitelist = {
-    "8C403AE6-9477-4CA1-832C-B5975D0F0C49", -- Mine
     "1165A65B-F75C-4ECB-A692-F055D8A81325", -- Ouz
     "A77C7F6C-DBA6-4290-B7B0-2F0488013114", -- Velemix
     "09A6E0D0-C5CC-4AC6-988A-8A2D81E03D18", -- CertfiedLag
@@ -68,7 +67,8 @@ local HwidWhitelist = {
     "DDBEAD82-7FA1-41FE-8E7A-7600A642F69C", -- Corrade
     "CBB67693-3958-47BD-B96C-33D0D594BC0A", -- Xzyn
     "24BE1051-ADEF-4CF8-8DE3-51DA5E52A43F", -- Floppy
-    "End"
+    "8C403AE6-9477-4CA1-832C-B5975D0F0C49" -- Mine
+
 }
 
 if table.find(HwidWhitelist, HWID) then
@@ -95,7 +95,7 @@ if table.find(GKEYS, _G.Key) then
     end
     for i, v in pairs(FloppyKey) do
         if v == HWID and _G.Key == "flopy" then
-            print("Logged In as FloppyKey")
+            print("Logged In as Floppy")
             loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
         elseif v == HWID and _G.Key ~= "flopy" then
             loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
