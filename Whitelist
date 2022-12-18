@@ -86,6 +86,14 @@ if _G.Key == nil then
 end
 
 if table.find(GKEYS, _G.Key) then
+    for i, v in pairs(CatmasKey) do
+        if v == HWID and _G.Key == "FatmaSmells" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
+        elseif v == HWID and _G.Key ~= "FatmaSmells" then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
+            game.Players.LocalPlayer:Kick("Incorrect Key")
+        end
+    end
     for i, v in pairs(OwnerKey) do
         if v == HWID and _G.Key == "Owner" then
             print("Logged in as xv")
@@ -95,15 +103,6 @@ if table.find(GKEYS, _G.Key) then
             game.Players.LocalPlayer:Kick("Incorrect Key")
         end
     end
-    for i, v in pairs(CatmasKey) do
-        if v == HWID and _G.Key == "FatmaSmells" then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
-        elseif v == HWID and _G.Key ~= "FatmaSmells" then
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
-            game.Players.LocalPlayer:Kick("Incorrect Key")
-        end
-    end
-
     for i, v in pairs(OuzKey) do
         if v == HWID and _G.Key == "Ouzispro" then
             print("Logged in as Ouz")
