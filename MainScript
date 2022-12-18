@@ -2972,7 +2972,7 @@ runcode(function()
 						Fly = Fly + 1
 						print(Fly)
 						game.workspace.Gravity = 0
-						local tween = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(1.5), {CFrame = Prim + Prim.lookVector * 150})
+						local tween = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(FastFlyv1Del), {CFrame = Prim + Prim.lookVector * FastFlyv1Ammount})
 						game.Players.LocalPlayer.Character.Humanoid.PlatformStand = true
 						tween:play()
 						tween.Completed:Wait(.1)
@@ -2985,6 +2985,24 @@ runcode(function()
 					FastFlyv1["ToggleButton"](false)
 				end
 			end
+		end
+	})
+	FastFlyv1Ammount = FastFlyv1.CreateSlider({
+		["Name"] = "Ammount",
+		["Min"] = 50,
+		["Max"] = 100,
+		["Default"] = 100,
+		["Function"] = function(val)
+			FastFlyv1Ammount = val
+		end
+	})
+	FastFlyv1Del = FastFlyv1.CreateSlider({
+		["Name"] = "Delay",
+		["Min"] = 1,
+		["Max"] = 3,
+		["Default"] = 1.5,
+		["Function"] = function(val)
+			FastFlyv1Del = val
 		end
 	})
 end)
