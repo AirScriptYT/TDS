@@ -11,7 +11,8 @@ local GKEYS = {
     "ELIYOQTHEHACKBEST",
     "CorradeKey",
     "Xzyn",
-    "FatmaSmells"
+    "FatmaSmells",
+    "End"
 }
 
 local OwnerKey = {
