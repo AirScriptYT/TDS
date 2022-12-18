@@ -2951,6 +2951,51 @@ runcode(function()
 	})
 end)
 
+
+
+
+
+
+runcode(function()
+	local FastFlyv1 = {["Enabled"] = false}
+    FastFlyv1 = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
+        ["Name"] = "FastFly",
+		["HoverText"] = "Zoom as Fast As Youre Father Left",
+        ["Function"] = function(callback)
+            if callback then
+				if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+					game.workspace.Gravity = 0
+					local Prim = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
+					local TS = game:GetService("TweenService")
+					Fly = 1
+					while Fly <= 15 do
+						Fly = Fly + 1
+						print(Fly)
+						game.workspace.Gravity = 0
+						local tween = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(1.5), {CFrame = Prim + Prim.lookVector * 150})
+						game.Players.LocalPlayer.Character.Humanoid.PlatformStand = true
+						tween:play()
+						tween.Completed:Wait(.1)
+						game.workspace.Gravity = 196.2
+					end
+					game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+					FastFlyv1["ToggleButton"](false)
+				else
+					createwarning("Ape", "Failed To Find HRP", 3)
+					FastFlyv1["ToggleButton"](false)
+				end
+			end
+		end
+	})
+end)
+
+
+
+
+
+
+
+
 GuiLibrary["RemoveObject"]("DeathTPOptionsButton")
 GuiLibrary["RemoveObject"]("SwimOptionsButton")
 GuiLibrary["RemoveObject"]("ReachOptionsButton")
@@ -2987,6 +3032,11 @@ createwarning("Ape ", "Thank You For Using Ape", 3)
 
 local plr1 = game.Players.LocalPlayer
 createwarning("Ape", "Logged in as "..(plr1.Name or plr1.DisplayName), 3)
+
+
+
+
+
 
 
 
