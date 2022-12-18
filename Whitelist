@@ -1,7 +1,6 @@
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
 local GKEYS = {
-    "Owner",
     "Ouzispro",
     "Velmix",
     "CertifiedLag",
@@ -12,6 +11,7 @@ local GKEYS = {
     "CorradeKey",
     "Xzyn",
     "FatmaSmells",
+    "Owner",
     "End"
 }
 
@@ -59,7 +59,6 @@ local CatmasKey = {
 }
 
 local HwidWhitelist = {
-    "8C403AE6-9477-4CA1-832C-B5975D0F0C49", -- Mine
     "1165A65B-F75C-4ECB-A692-F055D8A81325", -- Ouz
     "A77C7F6C-DBA6-4290-B7B0-2F0488013114", -- Velmix
     "09A6E0D0-C5CC-4AC6-988A-8A2D81E03D18", -- CertfiedLag
@@ -70,6 +69,7 @@ local HwidWhitelist = {
     "DDBEAD82-7FA1-41FE-8E7A-7600A642F69C", -- Corrade
     "CBB67693-3958-47BD-B96C-33D0D594BC0A", -- Xzyn
     "0098418B-01B1-4F11-B3E5-DFE9AE1CE2D6", -- Catmas
+    "8C403AE6-9477-4CA1-832C-B5975D0F0C49", -- Mine
     "End"
 }
 
