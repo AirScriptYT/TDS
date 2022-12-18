@@ -2964,24 +2964,31 @@ runcode(function()
         ["Function"] = function(callback)
             if callback then
 				if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-					game.workspace.Gravity = 0
-					local Prim = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
-					local TS = game:GetService("TweenService")
-					Fly = 1
-					while Fly <= 15 do
-						Fly = Fly + 1
-						print(Fly)
+					if entity.isAlive then
 						game.workspace.Gravity = 0
-						local tween = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(FastFlyv1Del), {CFrame = Prim + Prim.lookVector * FastFlyv1Ammount})
-						game.Players.LocalPlayer.Character.Humanoid.PlatformStand = true
-						tween:play()
-						tween.Completed:Wait(.1)
+						local Prim = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
+						local TS = game:GetService("TweenService")
+						Fly = 1
+						while Fly <= FastFlyTimes do
+							Fly = Fly + 1
+							print(Fly)
+							game.workspace.Gravity = 0
+							local tween = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(FastFlyv1Del), {CFrame = Prim + Prim.lookVector * FastFlyv1Ammount})
+							game.Players.LocalPlayer.Character.Humanoid.PlatformStand = true
+							tween:play()
+							tween.Completed:Wait(.1)
+							game.workspace.Gravity = 196.2
+						end
+						game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+						FastFlyv1["ToggleButton"](false)
+					else
+						createwarning("Ape", "You Are Dead !", 3)
 						game.workspace.Gravity = 196.2
-					end
-					game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
-					FastFlyv1["ToggleButton"](false)
+						FastFlyv1["ToggleButton"](false)
+					end	
 				else
 					createwarning("Ape", "Failed To Find HRP", 3)
+					game.workspace.Gravity = 196.2
 					FastFlyv1["ToggleButton"](false)
 				end
 			end
@@ -2994,6 +3001,15 @@ runcode(function()
 		["Default"] = 100,
 		["Function"] = function(val)
 			FastFlyv1Ammount = val
+		end
+	})
+	FastFlyTimes = FastFlyv1.CreateSlider({
+		["Name"] = "Times",
+		["Min"] = 1,
+		["Max"] = 15,
+		["Default"] = 14,
+		["Function"] = function(val)
+			FastFlyTimes = val
 		end
 	})
 	FastFlyv1Del = FastFlyv1.CreateSlider({
