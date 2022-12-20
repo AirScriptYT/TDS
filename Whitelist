@@ -7,6 +7,7 @@
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
 local HwidWhitelist = {
+    "24BE1051-ADEF-4CF8-8DE3-51DA5E52A43F", -- Floopy
     "1165A65B-F75C-4ECB-A692-F055D8A81325", -- Ouz
     "A77C7F6C-DBA6-4290-B7B0-2F0488013114", -- Velmix
     "09A6E0D0-C5CC-4AC6-988A-8A2D81E03D18", -- CertfiedLag
@@ -38,6 +39,32 @@ else
     loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
     game.Players.LocalPlayer:Kick("Fuck You Nigger")  
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
