@@ -3054,6 +3054,7 @@ runcode(function()
 end)
 --]]
 --[[
+local TS = game:GetService("TweenService")
 local Prim = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
 local tween2 = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(1.1), {CFrame = Prim + Prim.lookVector * 20})
 tween2:Play()
@@ -3103,6 +3104,29 @@ runcode(function()
 end)
 
 
+runcode(function()
+	local AutoPot = {["Enabled"] = false}
+    AutoPot = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
+        ["Name"] = "AutoPot",
+		["HoverText"] = "Currently On Works With Speed",
+        ["Function"] = function(callback)
+            if callback then
+				RunLoops:BindToHeartbeat("AutoPot", 1, function()
+					for i, v in pairs(game:GetService("ReplicatedStorage").Inventories[game.Players.LocalPlayer.Name]:GetChildren()) do
+						if v.Name == "speed_potion" then
+							game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.zphvjiltjZwgjsczzwyaq:InvokeServer({
+								["item"] = game:GetService("ReplicatedStorage").Inventories[game.Players.LocalPlayer.Name].speed_potion,
+							})
+						end
+					end
+				end)
+			else
+				RunLoops:UnbindFromHeartbeat("AutoPot")
+			end
+		end
+	})
+end)
+
 
 GuiLibrary["RemoveObject"]("DeathTPOptionsButton")
 GuiLibrary["RemoveObject"]("SwimOptionsButton")
@@ -3139,6 +3163,7 @@ createwarning("Ape ", "Thank You For Using Ape", 3)
 
 local plr1 = game.Players.LocalPlayer
 createwarning("Ape", "Logged in as "..(plr1.Name or plr1.DisplayName), 3)
+
 
 
 
