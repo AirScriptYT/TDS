@@ -2953,7 +2953,7 @@ end)
 
 
 
-
+--[[
 
 
 runcode(function()
@@ -3024,9 +3024,83 @@ runcode(function()
 end)
 
 
+runcode(function()
+	local TweenFly = {["Enabled"] = false}
+    TweenFly = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
+        ["Name"] = "TweenLongJump",
+		["HoverText"] = "LongJumpTest",
+        ["Function"] = function(callback)
+            if callback then
+				if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+					local TS = game:GetService("TweenService")
+					game.workspace.Gravity = 0
+					local Prim = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
+					local tween2 = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(1.1), {CFrame = Prim + Prim.lookVector * 20})
+					tween2:Play()
+					tween2.Completed:wait(0.5)
+					local Prim = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
+					local tween = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(1.1), {CFrame = Prim + Prim.lookVector * 30})
+					tween:Play()
+					tween.Completed:wait(0.5)
+					game.workspace.Gravity = 192.6
+					TweenFly["ToggleButton"](false)
+				else
+					createwarning("Ape", "Failed To Find HRP", 3)
+					TweenFly["ToggleButton"](false)
+				end 
+			end
+		end
+	})
+end)
+--]]
+--[[
+local Prim = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
+local tween2 = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(1.1), {CFrame = Prim + Prim.lookVector * 20})
+tween2:Play()
+tween2.Completed:wait(0.5)
+local Prim = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
+local tween = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(1.1), {CFrame = Prim + Prim.lookVector * 10})
+tween:Play()
+tween.Completed:wait(0.5)
+game.workspace.Gravity = 192.6
+
+--]]
 
 
-
+runcode(function()
+	local SizeChanger = {["Enabled"] = false}
+    SizeChanger = GuiLibrary["ObjectsThatCanBeSaved"]["RenderWindow"]["Api"].CreateOptionsButton({
+        ["Name"] = "SizeChanger",
+		["HoverText"] = "Changes The Size Of a Item",
+        ["Function"] = function(callback)
+            if callback then
+				RunLoops:BindToHeartbeat("SizeThing", 1, function()
+					for i, v in pairs(game:GetService("Workspace").Camera.Viewmodel:GetChildren()) do
+						if (v:IsA("Accessory")) then
+							if v:FindFirstChild("Handle").Anchored == true then
+								break
+							else
+								if v:FindFirstChild("Handle") then
+									v.Handle.Size =  v.Handle.Size / 3
+									v:FindFirstChild("Handle").Anchored = true
+								end
+								if v:FindFirstChild("Handle"):FindFirstChild("Neon") then
+									v:FindFirstChild("Handle"):FindFirstChild("Neon"):Destroy()
+								end
+								if v:FindFirstChild("Handle"):FindFirstChild("gem") then
+									v:FindFirstChild("Handle"):FindFirstChild("gem"):Destroy()
+								end
+							end
+						end
+					end
+				end)
+			else
+				RunLoops:UnbindFromHeartbeat("SizeThing")
+				createwarning("Ape", "Disabled Next Time You Die", 3)
+			end
+		end
+	})
+end)
 
 
 
@@ -3058,7 +3132,6 @@ GuiLibrary["RemoveObject"]("AutoSuffocateOptionsButton")
 GuiLibrary["RemoveObject"]("SchematicaOptionsButton")
 
 
-
 createwarning("Ape ", "Thank You For Using Ape", 3)
 
 
@@ -3066,12 +3139,6 @@ createwarning("Ape ", "Thank You For Using Ape", 3)
 
 local plr1 = game.Players.LocalPlayer
 createwarning("Ape", "Logged in as "..(plr1.Name or plr1.DisplayName), 3)
-
-
-
-
-
-
 
 
 
