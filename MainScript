@@ -3111,7 +3111,7 @@ runcode(function()
 		["HoverText"] = "Currently On Works With Speed",
         ["Function"] = function(callback)
             if callback then
-				repeat task.wait() until game:GetService("ReplicatedStorage").Inventories[game.Players.LocalPlayer.Name]
+				repeat task.wait() until game:GetService("ReplicatedStorage"):FindFirstChild("Inventories"):FindFirstChild(game.Players.LocalPlayer.Name) o r
 				RunLoops:BindToHeartbeat("AutoPot", 1, function()
 					for i, v in pairs(game:GetService("ReplicatedStorage").Inventories[game.Players.LocalPlayer.Name]:GetChildren()) do
 						if v.Name == "speed_potion" then
