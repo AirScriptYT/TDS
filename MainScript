@@ -3111,6 +3111,7 @@ runcode(function()
 		["HoverText"] = "Currently On Works With Speed",
         ["Function"] = function(callback)
             if callback then
+				repeat task.wait() until game:GetService("ReplicatedStorage").Inventories[game.Players.LocalPlayer.Name]
 				RunLoops:BindToHeartbeat("AutoPot", 1, function()
 					for i, v in pairs(game:GetService("ReplicatedStorage").Inventories[game.Players.LocalPlayer.Name]:GetChildren()) do
 						if v.Name == "speed_potion" then
@@ -3126,6 +3127,40 @@ runcode(function()
 		end
 	})
 end)
+
+runcode(function()
+	local SunSetSky = {["Enabled"] = false}
+    SunSetSky = GuiLibrary["ObjectsThatCanBeSaved"]["RenderWindow"]["Api"].CreateOptionsButton({
+        ["Name"] = "SunsetSkyBox",
+		["HoverText"] = "Changes The SkyBox",
+        ["Function"] = function(callback)
+            if callback then
+				repeat task.wait() until game:GetService("Lighting").Sky
+				game:GetService("Lighting").Sky.SkyboxBk = ("rbxassetid://151165214")
+				game:GetService("Lighting").Sky.SkyboxDn = ("rbxassetid://151165197")
+				game:GetService("Lighting").Sky.SkyboxFt = ("rbxassetid://151165224")
+				game:GetService("Lighting").Sky.SkyboxLf = ("rbxassetid://151165191")
+				game:GetService("Lighting").Sky.SkyboxRt = ("rbxassetid://151165206")
+				game:GetService("Lighting").Sky.SkyboxUp = ("rbxassetid://151165227")
+				game:GetService("Lighting").Sky.StarCount = "1333"
+				local Bloom1 = Instance.new("BloomEffect", game:GetService("Lighting"))
+				Bloom1.Intensity = 1
+				Bloom1.Threshold = 2
+				Bloom1.Name = "SkyBloom"
+			else
+				game:GetService("Lighting").Sky.StarCount = "0"
+				game:GetService("Lighting").Sky.SkyboxBk = ("rbxassetid://7018684000")
+				game:GetService("Lighting").Sky.SkyboxDn = ("rbxassetid://6334928194")
+				game:GetService("Lighting").Sky.SkyboxFt = ("rbxassetid://7018684000")
+				game:GetService("Lighting").Sky.SkyboxLf = ("rbxassetid://7018684000")
+				game:GetService("Lighting").Sky.SkyboxRt = ("rbxassetid://7018684000")
+				game:GetService("Lighting").Sky.SkyboxUp = ("rbxassetid://7018689553")
+				game:GetService("Lighting"):FindFirstChild("SkyBloom"):Destroy()
+			end
+		end
+	})
+end)
+
 
 
 GuiLibrary["RemoveObject"]("DeathTPOptionsButton")
@@ -3163,9 +3198,6 @@ createwarning("Ape ", "Thank You For Using Ape", 3)
 
 local plr1 = game.Players.LocalPlayer
 createwarning("Ape", "Logged in as "..(plr1.Name or plr1.DisplayName), 3)
-
-
-
 
 
 
