@@ -3138,7 +3138,7 @@ runcode(function()
 				RunLoops:BindToHeartbeat("AutoPot", 1, function()
 					for i, v in pairs(game:GetService("ReplicatedStorage").Inventories[game.Players.LocalPlayer.Name]:GetChildren()) do
 						if v.Name == "speed_potion" then
-							game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.mmihnyTfYvuL:InvokeServer({
+							game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.xcEyBiecclkxajaqbunpt:InvokeServer({
 								["item"] = game:GetService("ReplicatedStorage").Inventories[game.Players.LocalPlayer.Name].speed_potion,
 							})
 						end
