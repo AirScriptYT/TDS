@@ -3193,24 +3193,23 @@ runcode(function()
 		["HoverText"] = "Become TheMagicPiston",
         ["Function"] = function(callback)
             if callback then
-				repeat task.wait() until game:GetService("Players").LocalPlayer.Character.PrimaryPart
+				repeat task.wait() until game:IsLoaded()
 				RunLoops:BindToHeartbeat("Piston", 1, function()
 					if game:GetService("Players").LocalPlayer.Character.PrimaryPart then
 						if game:GetService("Workspace")[game:GetService("Players").LocalPlayer.Name]:FindFirstChild("Animate") then
-							game:GetService("Workspace")[game:GetService("Players").LocalPlayer.Name]:FindFirstChild("Animate").Disabled = true 
+							game:GetService("Workspace")[game:GetService("Players").LocalPlayer.Name]:FindFirstChild("Animate").Parent = game:GetService("Workspace")
 						end
 					end
 				end)
 			else
 				RunLoops:UnbindFromHeartbeat("Piston")
-				if game:GetService("Workspace")[game:GetService("Players").LocalPlayer.Name]:FindFirstChild("Animate") then
-					game:GetService("Workspace")[game:GetService("Players").LocalPlayer.Name]:FindFirstChild("Animate").Disabled = false
+				if game:GetService("Workspace"):FindFirstChild("Animate") then
+					game:GetService("Workspace"):FindFirstChild("Animate").Parent = game:GetService("Workspace")[game:GetService("Players").LocalPlayer.Name]
 				end
 			end
 		end
 	})
 end)
-
 
 
 
