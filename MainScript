@@ -3193,7 +3193,9 @@ runcode(function()
 		["HoverText"] = "Become TheMagicPiston",
         ["Function"] = function(callback)
             if callback then
-				repeat task.wait() until game:IsLoaded()
+				repeat task.wait() until game:IsLoaded() and game:GetService("Players").LocalPlayer.Character.PrimaryPart
+				game.Players.LocalPlayer.Character.Humanoid.PlatformStand= true
+				task.wait(0.1)
 				RunLoops:BindToHeartbeat("Piston", 1, function()
 					if game:GetService("Players").LocalPlayer.Character.PrimaryPart then
 						if game:GetService("Workspace")[game:GetService("Players").LocalPlayer.Name]:FindFirstChild("Animate") then
@@ -3201,6 +3203,7 @@ runcode(function()
 						end
 					end
 				end)
+				game.Players.LocalPlayer.Character.Humanoid.PlatformStand= false
 			else
 				RunLoops:UnbindFromHeartbeat("Piston")
 				if game:GetService("Workspace"):FindFirstChild("Animate") then
