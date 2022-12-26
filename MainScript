@@ -2665,7 +2665,7 @@ end)
 
 
 
-
+--[[
 runcode(function()
 	local VelocityHighJump = {["Enabled"] = true}
     VelocityHighJump = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
@@ -2758,8 +2758,7 @@ runcode(function()
 end)
 
 
-
-
+]]--
 
 --[[runcode(function()
 	local Funny1 = {["Enabled"] = false}
@@ -2858,6 +2857,9 @@ runcode(function()
 	})
 
 end)
+
+
+
 
 
 
@@ -3127,30 +3129,9 @@ runcode(function()
 end)
 
 
-runcode(function()
-	local AutoPot = {["Enabled"] = false}
-    AutoPot = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
-        ["Name"] = "AutoPot",
-		["HoverText"] = "Currently On Works With Speed",
-        ["Function"] = function(callback)
-            if callback then
-				repeat task.wait() until game:GetService("ReplicatedStorage"):FindFirstChild("Inventories"):FindFirstChild(game:GetService("Players").LocalPlayer.Name) or game:GetService("ReplicatedStorage"):WaitForChild("Inventories"):WaitForChild(game:GetService("Players").LocalPlayer.Name)
-				RunLoops:BindToHeartbeat("AutoPot", 1, function()
-					for i, v in pairs(game:GetService("ReplicatedStorage").Inventories[game.Players.LocalPlayer.Name]:GetChildren()) do
-						if v.Name == "speed_potion" then
-							local SpeedPotionRemote = "abfjOnyhfhtbzzgivaaisnaV"
-							game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged[SpeedPotionRemote]:InvokeServer({
-								["item"] = game:GetService("ReplicatedStorage").Inventories[game.Players.LocalPlayer.Name].speed_potion,
-							})
-						end
-					end
-				end)
-			else
-				RunLoops:UnbindFromHeartbeat("AutoPot")
-			end
-		end
-	})
-end)
+
+
+
 
 runcode(function()
 	local SunSetSky = {["Enabled"] = false}
@@ -3236,7 +3217,6 @@ GuiLibrary["RemoveObject"]("AutoToxicOptionsButton")
 GuiLibrary["RemoveObject"]("ChatSpammerOptionsButton")
 GuiLibrary["RemoveObject"]("AutoKitOptionsButton")
 GuiLibrary["RemoveObject"]("AutoJuggernautOptionsButton")
-GuiLibrary["RemoveObject"]("AutoConsumeOptionsButton")
 GuiLibrary["RemoveObject"]("XrayOptionsButton")
 GuiLibrary["RemoveObject"]("BedProtectorOptionsButton")
 GuiLibrary["RemoveObject"]("AutoSuffocateOptionsButton")
@@ -3258,53 +3238,6 @@ createwarning("Ape", "Logged in as "..(plr1.Name or plr1.DisplayName), 3)
 
 
 
-
-
---[[
-
-local UserInputService = game:GetService("UserInputService")
-
-local function onInputBegan(input, _gameProcessed)
-	if input.UserInputType == Enum.UserInputType.MouseButton1 then
-		print("The left mouse button has been pressed!")
-		local Mouse = game.Players.LocalPlayer:GetMouse()
-		for i, v in pairs(game:GetService("ReplicatedStorage").Inventories[game.Players.LocalPlayer.Name]:GetChildren()) do
-			if v.Name == ("wool_blue") then
-				game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.PlaceBlock:InvokeServer({
-					["position"] = Vector3.new(math.floor(Mouse.hit.Position.X / 3), math.floor(Mouse.hit.Position.Y / 3), math.floor(Mouse.hit.Position.Z / 3)),
-					["blockType"] = v.Name,
-				})
-			end
-		end
-	end
-end
-UserInputService.InputBegan:Connect(onInputBegan)
-
-
-
-]]--
---[[
-
-local TS = game:GetService("TweenService")
-game.workspace.Gravity = 0
-local Prim = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
-local tween = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(2), {CFrame = Prim + Prim.lookVector * 120})
-tween:play()
-tween.Completed:Wait()
-local Prim2 = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
-game.Players.LocalPlayer.Character.PrimaryPart.CFrame = Prim2
-game.Players.LocalPlayer.Character.PrimaryPart.CFrame = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
-task.wait()
-game.Players.LocalPlayer.Character.PrimaryPart.CFrame = Prim
-game.Players.LocalPlayer.Character.PrimaryPart.CFrame = Prim
-tween:play()
-tween.Completed:Wait()
-game.Players.LocalPlayer.Character.PrimaryPart.CFrame = Prim2
-tween:play()
-game.workspace.Gravity = 192.6
-
-
-]]---
 
 
 
