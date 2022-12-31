@@ -1,5 +1,10 @@
-
+repeat task.wait() until game:IsLoaded()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
+
+local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
+local HwidWhitelist = {
+	"8C403AE6-9477-4CA1-832C-B5975D0F0C49"
+}
 
 
 local GuiLibrary = shared.GuiLibrary
@@ -3166,29 +3171,19 @@ runcode(function()
 	})
 end)
 
+
 runcode(function()
-	local BecomePiston = {["Enabled"] = false}
-    BecomePiston = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
-        ["Name"] = "BecomePiston",
-		["HoverText"] = "Become TheMagicPiston",
-        ["Function"] = function(callback)
-            if callback then
-				repeat task.wait() until game:IsLoaded() and game:GetService("Players").LocalPlayer.Character.PrimaryPart
-				game.Players.LocalPlayer.Character.Humanoid.PlatformStand= true
-				task.wait(0.1)
-				RunLoops:BindToHeartbeat("Piston", 1, function()
-					if game:GetService("Players").LocalPlayer.Character.PrimaryPart then
-						if game:GetService("Workspace")[game:GetService("Players").LocalPlayer.Name]:FindFirstChild("Animate") then
-							game:GetService("Workspace")[game:GetService("Players").LocalPlayer.Name]:FindFirstChild("Animate").Parent = game:GetService("Workspace")
-						end
-					end
+	local PlayerAnoyer = {["Enabled"] = false}
+	PlayerAnoyer = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
+		["Name"] = "PlayerAnnoyer",
+		["HoverText"] = "Annoyes The Player With A Stupid Sound",
+		["Function"] = function(callback)
+			if callback then
+				RunLoops:BindToHeartbeat("PlayerAnoyer", 1, function()
+					game:GetService("ReplicatedStorage")["events-@easy-games/game-core:shared/game-core-networking@getEvents.Events"].useAbility:FireServer("PARTY_POPPER")
 				end)
-				game.Players.LocalPlayer.Character.Humanoid.PlatformStand= false
 			else
-				RunLoops:UnbindFromHeartbeat("Piston")
-				if game:GetService("Workspace"):FindFirstChild("Animate") then
-					game:GetService("Workspace"):FindFirstChild("Animate").Parent = game:GetService("Workspace")[game:GetService("Players").LocalPlayer.Name]
-				end
+				RunLoops:UnbindFromHeartbeat("PlayerAnoyer")
 			end
 		end
 	})
@@ -3230,14 +3225,6 @@ createwarning("Ape ", "Thank You For Using Ape", 3)
 
 local plr1 = game.Players.LocalPlayer
 createwarning("Ape", "Logged in as "..(plr1.Name or plr1.DisplayName), 3)
-
-
-
-
-
-
-
-
 
 
 
