@@ -1,10 +1,6 @@
 repeat task.wait() until game:IsLoaded()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
 
-local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
-local HwidWhitelist = {
-	"8C403AE6-9477-4CA1-832C-B5975D0F0C49"
-}
 
 
 local GuiLibrary = shared.GuiLibrary
