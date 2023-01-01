@@ -1,6 +1,10 @@
-repeat task.wait() until game:IsLoaded()
+repeat task.wait() until game:IsLoaded() and game:GetService("Players").LocalPlayer
 loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
 
+local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
+local HwidWhitelist = {
+	"8C403AE6-9477-4CA1-832C-B5975D0F0C49"
+}
 
 
 local GuiLibrary = shared.GuiLibrary
@@ -2922,7 +2926,7 @@ end)
 
 
 
-
+--[[
 
 runcode(function()
 	local DeathTp1 = {["Enabled"] = false}
@@ -2947,7 +2951,7 @@ runcode(function()
 		end
 	})
 end)
-
+]]--
 runcode(function()
 	local MassNuker = {["Enabled"] = false}
     MassNuker = GuiLibrary["ObjectsThatCanBeSaved"]["WorldWindow"]["Api"].CreateOptionsButton({
@@ -3186,8 +3190,99 @@ runcode(function()
 end)
 
 
+runcode(function()
+	local OldLeaderBoard = {["Enabled"] = false}
+	OldLeaderBoard = GuiLibrary["ObjectsThatCanBeSaved"]["RenderWindow"]["Api"].CreateOptionsButton({
+		["Name"] = "LeaderBoard",
+		["HoverText"] = "The LeaderBoard Becomes The Old One",
+		["Function"] = function(callback)
+			if callback then
+				RunLoops:BindToHeartbeat("OldLeader", 1, function()
+					game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, true)
+				end)
+			else
+				RunLoops:UnbindFromHeartbeat("OldLeader")
+				game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.PlayerList, false)
+			end
+		end
+	})
+end)
 
-GuiLibrary["RemoveObject"]("DeathTPOptionsButton")
+
+
+runcode(function()
+	local Player = game:GetService("Players").LocalPlayer
+	function GotoAllBeds(GotoAllBedsDEL)
+		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
+			if v.Name == "bed" then
+				if v.Covers.BrickColor ~= game.Players.LocalPlayer.Team.TeamColor then
+					game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
+					Player.CharacterAdded:Wait()
+					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = v.CFrame + Vector3.new(0,2,0)
+					if GotoAllBedsDEL ~= nil then
+						task.wait(GotoAllBedsDEL)
+					else
+						task.wait(3.5)
+					end
+				end
+			end
+		end
+	end
+
+	function GotoPlayers()
+		for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+			if v ~= Player and v.TeamColor.Name ~= Player.TeamColor.Name then
+				if v.Character then
+					Player.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
+					Player.CharacterAdded:Wait()
+					while v.Character.Humanoid.Health > 0 and v.Character:FindFirstChild("HumanoidRootPart") do
+						game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = v.Character:FindFirstChild("HumanoidRootPart").CFrame
+						task.wait(0.1)
+					end
+				end
+			end
+		end
+	end
+	local DeathAutowinCheck = 0
+	local DeathAutowin = {["Enabled"] = false}
+	DeathAutowin = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
+		["Name"] = "DeathWin",
+		["HoverText"] = "An Autowin but Uses Death tp (Make Sure KillAura and Nuker is on ! )",
+		["Function"] = function(callback)
+			if callback then
+				createwarning("Ape", "Please Wait", 3)
+				repeat task.wait() until game:GetService("ReplicatedStorage"):WaitForChild("Inventories"):WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("wood_pickaxe")
+				if game:GetService("ReplicatedStorage"):WaitForChild("Inventories"):WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("wood_pickaxe") then
+					DeathAutowinCheck = DeathAutowinCheck + 1
+					if DeathAutowinCheck ~= 1 then
+						createwarning("Ape", "Please Do Not Enable This Over One Time", 5)
+						if DeathAutowin["Enabled"] then
+							DeathAutowin["ToggleButton"](false)
+						end
+					end
+					if DeathAutowinCheck == 1 then
+						createwarning("Ape", "Destroying Beds", 5)
+						GotoAllBeds()
+						createwarning("Ape", "Killing Players", 5)
+						GotoPlayers()
+						createwarning("Ape", "You Won !", 3)
+					end
+					if DeathAutowin["Enabled"] then
+						DeathAutowin["ToggleButton"](false)
+					end
+				else
+					createwarning("Ape", "Failed To Find Inventory", 3)
+					if DeathAutowin["Enabled"] then
+						DeathAutowin["ToggleButton"](false)
+					end
+				end
+			end
+		end
+	})
+end)
+
+
+GuiLibrary["RemoveObject"]("AnticheatBypassOptionsButton")
 GuiLibrary["RemoveObject"]("SwimOptionsButton")
 GuiLibrary["RemoveObject"]("ReachOptionsButton")
 GuiLibrary["RemoveObject"]("SpinBotOptionsButton")
@@ -3221,6 +3316,10 @@ createwarning("Ape ", "Thank You For Using Ape", 3)
 
 local plr1 = game.Players.LocalPlayer
 createwarning("Ape", "Logged in as "..(plr1.Name or plr1.DisplayName), 3)
+
+
+
+
 
 
 
