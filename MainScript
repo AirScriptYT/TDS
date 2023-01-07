@@ -1,6 +1,6 @@
 repeat task.wait() until game:IsLoaded() and game:GetService("Players").LocalPlayer
 loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
-
+local Player = game:GetService("Players").LocalPlayer
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 local HwidWhitelist = {
 	"8C403AE6-9477-4CA1-832C-B5975D0F0C49"
@@ -2425,10 +2425,11 @@ runcode(function()
 		["HoverText"] = "By enabling this u support ape 👌👌👌👌",
         ["Function"] = function(callback)
             if callback then
-				repeat
-					task.wait(SupportDEL)
+				RunLoops:BindToHeartbeat("ChannelSupport", SupportDEL, function()
 					game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Ape > V3pe ","All")
-				until (not Yt["Enabled"])
+				end)
+			else
+				RunLoops:UnbindFromHeartbeat("ChannelSupport")
 			end
 		end
 	})
@@ -2772,52 +2773,8 @@ runcode(function()
 end)
 
 
+
 ]]--
-
---[[runcode(function()
-	local Funny1 = {["Enabled"] = false}
-    Funny1 = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
-        ["Name"] = "FunnyHighJump",
-		["HoverText"] = "Uses Cframe",
-        ["Function"] = function(callback)
-            if callback then
-				if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-					createwarning("Ape", "Please Wait "..Funny1Del, 3)
-					task.wait(Funny1Del)
-					game.Players.LocalPlayer.Character.PrimaryPart.CFrame = game.Players.LocalPlayer.Character.PrimaryPart.CFrame + Vector3.new(0,Funny1Ammount,0)
-					Funny1["ToggleButton"](false)
-				else
-					createwarning("Ape", "Failed To Find PrimaryPart", 3)
-					Funny1["ToggleButton"](false)
-				end
-			end
-		end
-	})
-
-
-	Funny1Ammount = Funny1.CreateSlider({
-		["Name"] = "Amount",
-		["Min"] = 5,
-		["Max"] = 5000,
-		["Default"] = 500,
-		["Function"] = function(val)
-			Funny1Ammount = val
-		end
-	})
-
-	Funny1Del = Funny1.CreateSlider({
-		["Name"] = "Delay",
-		["Min"] = 1,
-		["Max"] = 3,
-		["Default"] = 2,
-		["Function"] = function(val)
-			Funny1Del = val
-		end
-	})
-end)
---]]
-
-
 				
 
 
@@ -2829,30 +2786,21 @@ runcode(function()
 	local HypixelFly = {["Enabled"] = false}
     HypixelFly = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
         ["Name"] = "HypixelFly",
-		["HoverText"] = "epik code",
+		["HoverText"] = "A Fly",
         ["Function"] = function(callback)
             if callback then
 				if entity.isAlive then
 					local OriginalPosX = game.Players.LocalPlayer.character.HumanoidRootPart.Position.y
 					if game.Players.LocalPlayer.character.HumanoidRootPart.Position.y == OriginalPosX then
 						game.workspace.Gravity = 0
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 1
-						wait()
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.5
-						wait()
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 1
-						wait()
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.5
-						wait()
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 1
-						wait()
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.5
-						wait()
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 1
-						wait()
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.lookVector * 0.5
-						wait()
-						task.wait(0.5)
+						local TS = game:GetService("TweenService")
+						for i = 1, 3 do
+							task.wait()
+							local Prim = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
+							local tween = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(0.5), {CFrame = Prim + Prim.lookVector * 10})
+							tween:play()
+							tween.Completed:Wait()
+						end
 						repeat
 							task.wait()
 							local mag = workspace:Raycast(entity.character.HumanoidRootPart.Position, Vector3.new(0, -32, 0), blockraycast)
@@ -2869,7 +2817,6 @@ runcode(function()
 			end
 		end
 	})
-
 end)
 
 
@@ -2877,90 +2824,6 @@ end)
 
 
 
-runcode(function()
-	local PlayerTp = {["Enabled"] = false}
-    PlayerTp = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
-        ["Name"] = "PlayerTp",
-		["HoverText"] = "TelePorts To the Closes Player",
-        ["Function"] = function(callback)
-            if callback then
-				if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-					local Dist = math.huge 
-					local Target = nil
-					for i, v in pairs(game.Players:GetChildren()) do
-						if v ~= game.Players.LocalPlayer and v.TeamColor ~= game.Players.LocalPlayer.TeamColor then
-							if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") and v.Character:WaitForChild("HumanoidRootPart") then
-								if (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude < Dist then
-									Target = v
-									if game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart") and Target.Character:WaitForChild("HumanoidRootPart") then
-										game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(0,10000000,0)
-										task.wait(6)
-										game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = Target.Character.HumanoidRootPart.CFrame
-										task.wait(0.1)
-										iea2 = 0
-										while iea2 <= 150 do
-											task.wait(0.00001)
-											iea2 = iea2 + 1
-											game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = Target.Character.HumanoidRootPart.CFrame
-											print(iea2)
-										end
-										print(Target)
-										Target = nil
-										PlayerTp["ToggleButton"](false)
-									else
-										PlayerTp["ToggleButton"](false)
-										print("Failed")
-										Target = nil
-									end
-								end
-							else
-								PlayerTp["ToggleButton"](false)
-								createwarning("Ape", "You or The Player Has No Humanoid", 3)
-							end
-							return Target
-						end
-					end
-					PlayerTp["ToggleButton"](false)
-				else
-					PlayerTp["ToggleButton"](false)
-				end
-			end
-		end
-	})
-end)
-
-
-
-
-
-
-
---[[
-
-runcode(function()
-	local DeathTp1 = {["Enabled"] = false}
-    DeathTp1 = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
-        ["Name"] = "DeathTp",
-		["HoverText"] = "TelePorts To The Point of the mouse",
-        ["Function"] = function(callback)
-            if callback then
-				local Player = game.Players.LocalPlayer
-				local mouse = Player:GetMouse()
-				local mousePos = mouse.Hit.p
-				for i, v in pairs(game.Players:GetChildren()) do
-					if v == Player then
-						game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
-						Player.CharacterAdded:Wait()
-						game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CFrame.new(mousePos) + Vector3.new(0,2,0)
-						DeathTp1["ToggleButton"](false)
-						createwarning("Ape", "Character Teleported", 3)
-					end
-				end
-			end
-		end
-	})
-end)
-]]--
 runcode(function()
 	local MassNuker = {["Enabled"] = false}
     MassNuker = GuiLibrary["ObjectsThatCanBeSaved"]["WorldWindow"]["Api"].CreateOptionsButton({
@@ -2992,119 +2855,7 @@ end)
 
 
 
---[[
 
-
-runcode(function()
-	local FastFlyv1 = {["Enabled"] = false}
-    FastFlyv1 = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
-        ["Name"] = "FastFly",
-		["HoverText"] = "Zoom as Fast As Youre Father Left",
-        ["Function"] = function(callback)
-            if callback then
-				if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-					if entity.isAlive then
-						game.workspace.Gravity = 0
-						local Prim = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
-						local TS = game:GetService("TweenService")
-						Fly = 1
-						while Fly <= FastFlyTimes do
-							Fly = Fly + 1
-							print(Fly)
-							game.workspace.Gravity = 0
-							local tween = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(FastFlyv1Del), {CFrame = Prim + Prim.lookVector * FastFlyv1Ammount})
-							game.Players.LocalPlayer.Character.Humanoid.PlatformStand = true
-							tween:play()
-							tween.Completed:Wait(.1)
-							game.workspace.Gravity = 196.2
-						end
-						game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
-						FastFlyv1["ToggleButton"](false)
-					else
-						createwarning("Ape", "You Are Dead !", 3)
-						game.workspace.Gravity = 196.2
-						FastFlyv1["ToggleButton"](false)
-					end	
-				else
-					createwarning("Ape", "Failed To Find HRP", 3)
-					game.workspace.Gravity = 196.2
-					FastFlyv1["ToggleButton"](false)
-				end
-			end
-		end
-	})
-	FastFlyv1Ammount = FastFlyv1.CreateSlider({
-		["Name"] = "Ammount",
-		["Min"] = 50,
-		["Max"] = 100,
-		["Default"] = 100,
-		["Function"] = function(val)
-			FastFlyv1Ammount = val
-		end
-	})
-	FastFlyTimes = FastFlyv1.CreateSlider({
-		["Name"] = "Times",
-		["Min"] = 1,
-		["Max"] = 15,
-		["Default"] = 14,
-		["Function"] = function(val)
-			FastFlyTimes = val
-		end
-	})
-	FastFlyv1Del = FastFlyv1.CreateSlider({
-		["Name"] = "Delay",
-		["Min"] = 1,
-		["Max"] = 3,
-		["Default"] = 1.5,
-		["Function"] = function(val)
-			FastFlyv1Del = val
-		end
-	})
-end)
-
-
-runcode(function()
-	local TweenFly = {["Enabled"] = false}
-    TweenFly = GuiLibrary["ObjectsThatCanBeSaved"]["BlatantWindow"]["Api"].CreateOptionsButton({
-        ["Name"] = "TweenLongJump",
-		["HoverText"] = "LongJumpTest",
-        ["Function"] = function(callback)
-            if callback then
-				if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
-					local TS = game:GetService("TweenService")
-					game.workspace.Gravity = 0
-					local Prim = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
-					local tween2 = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(1.1), {CFrame = Prim + Prim.lookVector * 20})
-					tween2:Play()
-					tween2.Completed:wait(0.5)
-					local Prim = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
-					local tween = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(1.1), {CFrame = Prim + Prim.lookVector * 30})
-					tween:Play()
-					tween.Completed:wait(0.5)
-					game.workspace.Gravity = 192.6
-					TweenFly["ToggleButton"](false)
-				else
-					createwarning("Ape", "Failed To Find HRP", 3)
-					TweenFly["ToggleButton"](false)
-				end 
-			end
-		end
-	})
-end)
---]]
---[[
-local TS = game:GetService("TweenService")
-local Prim = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
-local tween2 = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(1.1), {CFrame = Prim + Prim.lookVector * 20})
-tween2:Play()
-tween2.Completed:wait(0.5)
-local Prim = game.Players.LocalPlayer.Character.PrimaryPart.CFrame
-local tween = TS:Create(game.Players.LocalPlayer.Character.PrimaryPart, TweenInfo.new(1.1), {CFrame = Prim + Prim.lookVector * 10})
-tween:Play()
-tween.Completed:wait(0.5)
-game.workspace.Gravity = 192.6
-
---]]
 
 
 runcode(function()
@@ -3220,14 +2971,13 @@ end)
 
 
 runcode(function()
-	local Player = game:GetService("Players").LocalPlayer
 	function GotoAllBeds(GotoAllBedsDEL)
 		for i, v in pairs(game:GetService("Workspace"):GetChildren()) do
 			if v.Name == "bed" then
 				if v.Covers.BrickColor ~= game.Players.LocalPlayer.Team.TeamColor then
-					game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
+					game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid").Health = 0
 					Player.CharacterAdded:Wait()
-					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = v.CFrame + Vector3.new(0,2,0)
+					game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = v.CFrame + Vector3.new(0,2,0)
 					if GotoAllBedsDEL ~= nil then
 						task.wait(GotoAllBedsDEL)
 					else
@@ -3244,8 +2994,8 @@ runcode(function()
 				if v.Character then
 					Player.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
 					Player.CharacterAdded:Wait()
-					while v.Character.Humanoid.Health > 0 and v.Character:FindFirstChild("HumanoidRootPart") do
-						game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = v.Character:FindFirstChild("HumanoidRootPart").CFrame
+					while v.Character:FindFirstChild("Humanoid").Health > 0 and v.Character:FindFirstChild("HumanoidRootPart") do
+						game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = v.Character:FindFirstChild("HumanoidRootPart").CFrame
 						task.wait(0.1)
 					end
 				end
@@ -3262,6 +3012,9 @@ runcode(function()
 				createwarning("Ape", "Please Wait", 3)
 				repeat task.wait() until game:GetService("ReplicatedStorage"):WaitForChild("Inventories"):WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("wood_pickaxe")
 				if game:GetService("ReplicatedStorage"):WaitForChild("Inventories"):WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("wood_pickaxe") then
+					if DeathAutowin["Enabled"] then
+						DeathAutowin["ToggleButton"](false)
+					end
 					if Player.Character.Humanoid.Health <= 0 then
 						createwarning("Ape", "You Cannot Enable This While Your Dead !", 5)
 						if DeathAutowin["Enabled"] then
@@ -3307,10 +3060,8 @@ runcode(function()
 			if callback then
 				RunLoops:BindToHeartbeat("AutoDip", 1, function()
 					if WhitelistFunctions:IsSpecialIngame() then 
-						createwarning("AutoDip", "Found Whitelist In Game", 2)
-						task.wait(0.5)
 						if AutoDipModes["Value"] == "RootPartDestroy" then
-							game:GetService("Players").LocalPlayer.Character.HumanoidRootPart:Destroy()
+							game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):Destroy()
 						end
 						if AutoDipModes["Value"] == "Leave" then
 							game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("/bedwars","All")
@@ -3328,6 +3079,53 @@ runcode(function()
 		["Function"] = function() end
 	})
 end)
+
+
+
+
+runcode(function()
+	local UserInputService = game:GetService("UserInputService")
+	local PlaceAnywhere = false
+	local function onInputBegan(input, _gameProcessed)
+		if PlaceAnywhere == true then
+			if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				local MouseHit = game:GetService("Players").LocalPlayer:GetMouse().Hit
+				local Rounds = {
+					X = math.round(MouseHit.X/3),
+					Y = math.round(MouseHit.Y/3),
+					Z = math.round(MouseHit.Z/3)
+				}
+	
+				for i, v in pairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
+					if (v:IsA("Accessory")) and v:FindFirstChild("Handle") and v:FindFirstChild("Handle"):FindFirstChild("Back") then
+						game:GetService("ReplicatedStorage").rbxts_include.node_modules["@rbxts"].net.out._NetManaged.PlaceBlock:InvokeServer({
+							["position"] = Vector3.new(Rounds.X, Rounds.Y, Rounds.Z),
+							["blockType"] = v.Name,
+						})
+					end
+				end
+			end
+		end
+	end
+	local BlockExploit = {["Enabled"] = false}
+	BlockExploit = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
+		["Name"] = "BlockExploit",
+		["HoverText"] = "Allows You To Place Blocks Anywhere",
+		["Function"] = function(callback)
+			if callback then
+				PlaceAnywhere = true
+				UserInputService.InputBegan:Connect(onInputBegan)
+				createwarning("BlockExploit", "You Can Now Place Blocks Anywhere", 2)
+
+			else
+				PlaceAnywhere = false
+				UserInputService.InputBegan:Connect(onInputBegan)
+			end
+		end
+	})
+end)
+
+
 
 
 GuiLibrary["RemoveObject"]("AnticheatBypassOptionsButton")
@@ -3365,6 +3163,10 @@ createwarning("Ape ", "Thank You For Using Ape", 3)
 
 local plr1 = game.Players.LocalPlayer
 createwarning("Ape", "Logged in as "..(plr1.Name or plr1.DisplayName), 3)
+
+
+
+
 
 
 
