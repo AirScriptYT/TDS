@@ -2820,9 +2820,7 @@ runcode(function()
 end)
 
 
-
-
-
+	
 
 runcode(function()
 	local MassNuker = {["Enabled"] = false}
@@ -2839,7 +2837,7 @@ runcode(function()
 								game.Players.LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Dead)
 								Player.CharacterAdded:Wait()
 								game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = v.CFrame + Vector3.new(0,2,0)
-								task.wait(3.5)
+								task.wait(4.5)
 							end
 						end
 					end
@@ -2892,6 +2890,7 @@ runcode(function()
 		end
 	})
 end)
+
 
 
 
@@ -3030,7 +3029,7 @@ runcode(function()
 					end
 					if DeathAutowinCheck == 1 then
 						createwarning("Ape", "Destroying Beds", 5)
-						GotoAllBeds()
+						GotoAllBeds(4.5)
 						createwarning("Ape", "Killing Players", 5)
 						GotoPlayers()
 						createwarning("Ape", "You Won !", 3)
@@ -3128,6 +3127,34 @@ end)
 
 
 
+runcode(function()
+	local AutoDeathTP = {["Enabled"] = false}
+	AutoDeathTP = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
+		["Name"] = "AutoDeathTP",
+		["HoverText"] = "Respawns Where You Last Died",
+		["Function"] = function(callback)
+			if callback then
+				local Player = game.Players.LocalPlayer
+				RunLoops:BindToHeartbeat("AutoDeathTP", 1, function()
+					if entity.isAlive and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid").Health then
+						if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid").Health <= 10 then
+							local NewPos = Player.Character:FindFirstChild("HumanoidRootPart").CFrame
+							Player.CharacterAdded:Wait()
+							Player.Character:WaitForChild("HumanoidRootPart").CFrame = NewPos
+						end
+					end
+				end)
+			else
+				RunLoops:UnbindFromHeartbeat("AutoDeathTP")
+			end
+		end
+	})
+end)
+
+
+
+
+
 GuiLibrary["RemoveObject"]("AnticheatBypassOptionsButton")
 GuiLibrary["RemoveObject"]("DeathTPOptionsButton")
 GuiLibrary["RemoveObject"]("SwimOptionsButton")
@@ -3163,6 +3190,9 @@ createwarning("Ape ", "Thank You For Using Ape", 3)
 
 local plr1 = game.Players.LocalPlayer
 createwarning("Ape", "Logged in as "..(plr1.Name or plr1.DisplayName), 3)
+
+
+
 
 
 
