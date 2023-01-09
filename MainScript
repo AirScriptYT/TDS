@@ -1,4 +1,4 @@
-repeat task.wait() until game:IsLoaded() and game:GetService("Players").LocalPlayer
+repeat task.wait() until game:IsLoaded() and game:GetService("Players").LocalPlayer 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
 local Player = game:GetService("Players").LocalPlayer
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
@@ -3125,6 +3125,43 @@ runcode(function()
 end)
 
 
+runcode(function()
+	local AlrCheckList = {}
+	local RetardoDectetor = {["Enabled"] = false}
+	RetardoDectetor = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
+		["Name"] = "RetardoDectetor",
+		["HoverText"] = "Detects If They Are A Retard Credits To Gaving :Hot:",
+		["Function"] = function(callback)
+			if callback then
+				RunLoops:BindToHeartbeat("RetardoDectetor", 1, function()
+					for i, v in pairs(game:GetService("Players"):GetPlayers()) do
+						if table.find(AlrCheckList, v.Name) then
+							continue
+						else
+							if string.match(v.Name, "DV") or string.match(v.Name, "dv") or string.match(v.Name, "tanqr") or string.match(v.Name, "Tanqr") or string.match(v.Name, "Gdoggs")   then
+								table.insert(AlrCheckList, v.Name)
+								createwarning("RetardoDectetor", "Found A Retard "..v.Name, 2)
+								if RetardoDectetorLeave["Enabled"] then
+									game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("/bedwars","All")
+								end
+							end
+						end
+					end
+				end)
+			else
+				RunLoops:UnbindFromHeartbeat("RetardoDectetor")
+			end
+		end
+	})
+
+	RetardoDectetorLeave = RetardoDectetor.CreateToggle({
+		["Name"] = "Leave",
+		["Function"] = function() end, 
+		["Default"] = false,
+		["HoverText"] = "Leaves When A Retard Joins"
+	})
+end)
+
 
 
 runcode(function()
@@ -3136,7 +3173,7 @@ runcode(function()
 			if callback then
 				local Player = game.Players.LocalPlayer
 				RunLoops:BindToHeartbeat("AutoDeathTP", 1, function()
-					if entity.isAlive and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid").Health then
+					if entity.isAlive and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
 						if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid").Health <= 10 then
 							local NewPos = Player.Character:FindFirstChild("HumanoidRootPart").CFrame
 							Player.CharacterAdded:Wait()
@@ -3155,6 +3192,9 @@ end)
 
 
 
+
+
+GuiLibrary["RemoveObject"]("AutoBankOptionsButton")
 GuiLibrary["RemoveObject"]("AnticheatBypassOptionsButton")
 GuiLibrary["RemoveObject"]("DeathTPOptionsButton")
 GuiLibrary["RemoveObject"]("SwimOptionsButton")
@@ -3183,16 +3223,18 @@ GuiLibrary["RemoveObject"]("AutoSuffocateOptionsButton")
 GuiLibrary["RemoveObject"]("SchematicaOptionsButton")
 
 
-createwarning("Ape ", "Thank You For Using Ape", 3)
+local SkidHWID = {
+	"DDBEAD82-7FA1-41FE-8E7A-7600A642F69C"
+}
 
-
-
+if table.find(SkidHWID, HWID) then
+	createwarning("Ape ", "Thank You For Using Ape Skid !", 69)
+else
+	createwarning("Ape ", "Thank You For Using Ape", 3)
+end
 
 local plr1 = game.Players.LocalPlayer
 createwarning("Ape", "Logged in as "..(plr1.Name or plr1.DisplayName), 3)
-
-
-
 
 
 
