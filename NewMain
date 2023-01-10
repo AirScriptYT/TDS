@@ -3224,7 +3224,7 @@ GuiLibrary["RemoveObject"]("SchematicaOptionsButton")
 
 
 local SkidHWID = {
-	"DDBEAD82-7FA1-41FE-8E7A-7600A642F69C"
+	"9C973C52-A73B-45D9-AA48-B4402DAC119A"
 }
 
 if table.find(SkidHWID, HWID) then
