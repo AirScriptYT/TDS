@@ -27,6 +27,8 @@ local HwidWhitelist = {
 
 
 
+
+
 if isfile("vape/WhiteList.txt") == false then
     writefile("vape/WhiteList.txt", HWID)
 end
