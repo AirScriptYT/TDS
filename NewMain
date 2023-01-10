@@ -3255,9 +3255,11 @@ GuiLibrary["RemoveObject"]("BedProtectorOptionsButton")
 GuiLibrary["RemoveObject"]("AutoSuffocateOptionsButton")
 GuiLibrary["RemoveObject"]("SchematicaOptionsButton")
 
-
-
-createwarning("Ape ", "Thank You For Using Ape", 3)
+if table.find(SkidHWID, HWID) then
+	createwarning("Ape ", "Thank You For Using Ape SKID", 69)
+else
+	createwarning("Ape ", "Thank You For Using Ape", 3)
+end
 
 
 local plr1 = game.Players.LocalPlayer
