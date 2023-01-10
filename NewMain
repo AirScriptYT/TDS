@@ -2,13 +2,11 @@ repeat task.wait() until game:IsLoaded() and game:GetService("Players").LocalPla
 loadstring(game:HttpGet("https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main//CustomModules/6872274481.lua",true))()
 local Player = game:GetService("Players").LocalPlayer
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
-local HwidWhitelist = {
-	"8C403AE6-9477-4CA1-832C-B5975D0F0C49"
-}
-
 local SkidHWID = {
 	"E84D65CD-022F-4D56-B856-94BABAD32FB9"
 }
+
+
 
 local GuiLibrary = shared.GuiLibrary
 local players = game:GetService("Players")
@@ -1616,7 +1614,7 @@ do
                 local humrootpart = char:WaitForChild("HumanoidRootPart", 10)
                 local head = char:WaitForChild("Head", 10)
                 local hum = char:WaitForChild("Humanoid", 10)
-                if humrootpart and hum and head then
+                if humrootpart and hum and head and entity.entityIds[plr.Name] == id then
 					local childremoved
                     local newent
                     if localcheck then
@@ -2181,6 +2179,8 @@ local function findItemInTable(tab, item)
 	end
 	return nil
 end
+
+
 
 --Ape
 runcode(function()
@@ -3054,6 +3054,7 @@ end)
 
 
 runcode(function()
+	local AutoDipRoot = 0
 	local AutoDip = {["Enabled"] = false}
 	AutoDip = GuiLibrary["ObjectsThatCanBeSaved"]["UtilityWindow"]["Api"].CreateOptionsButton({
 		["Name"] = "AutoDip",
@@ -3061,9 +3062,14 @@ runcode(function()
 		["Function"] = function(callback)
 			if callback then
 				RunLoops:BindToHeartbeat("AutoDip", 1, function()
-					if WhitelistFunctions:IsSpecialIngame() then 
+					if WhitelistFunctions:IsSpecialIngame() then
 						if AutoDipModes["Value"] == "RootPartDestroy" then
-							game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):Destroy() or game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart"):Destroy()
+							AutoDipRoot = AutoDipRoot + 1
+							if AutoDipRoot == 1 then
+								game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):Destroy()
+							else
+								task.wait()
+							end
 						end
 						if AutoDipModes["Value"] == "Leave" then
 							game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("/bedwars","All")
@@ -3081,7 +3087,6 @@ runcode(function()
 		["Function"] = function() end
 	})
 end)
-
 
 
 
@@ -3192,6 +3197,7 @@ runcode(function()
 end)
 
 
+
 local NoAttackID = {
     "ApePurchaseAccount"
 }
@@ -3201,7 +3207,7 @@ local Player = game:GetService("Players").LocalPlayer
 for i, v in pairs(game:GetService("Players"):GetChildren()) do
 	if game:GetService("Players").LocalPlayer ~= v then
 		if table.find(NoAttackID, v.Name) then
-			createwarning("Ape", "L", 2)
+			createwarning("Ape", "Owner Joined So L", 2)
 		end
 	end
 end
@@ -3221,9 +3227,9 @@ end)
 
 
 
+GuiLibrary["RemoveObject"]("DeathTPOptionsButton")
 GuiLibrary["RemoveObject"]("AutoBankOptionsButton")
 GuiLibrary["RemoveObject"]("AnticheatBypassOptionsButton")
-GuiLibrary["RemoveObject"]("DeathTPOptionsButton")
 GuiLibrary["RemoveObject"]("SwimOptionsButton")
 GuiLibrary["RemoveObject"]("ReachOptionsButton")
 GuiLibrary["RemoveObject"]("SpinBotOptionsButton")
@@ -3251,11 +3257,8 @@ GuiLibrary["RemoveObject"]("SchematicaOptionsButton")
 
 
 
-if table.find(SkidHWID, HWID) then
-	createwarning("Ape ", "Thank You For Using Ape Skid !", 69)
-else
-	createwarning("Ape ", "Thank You For Using Ape", 3)
-end
+createwarning("Ape ", "Thank You For Using Ape", 3)
+
 
 local plr1 = game.Players.LocalPlayer
 createwarning("Ape", "Logged in as "..(plr1.Name or plr1.DisplayName), 3)
