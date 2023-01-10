@@ -3063,7 +3063,7 @@ runcode(function()
 				RunLoops:BindToHeartbeat("AutoDip", 1, function()
 					if WhitelistFunctions:IsSpecialIngame() then 
 						if AutoDipModes["Value"] == "RootPartDestroy" then
-							game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):Destroy()
+							game:GetService("Players").LocalPlayer.Character:FindFirstChild("HumanoidRootPart"):Destroy() or game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart"):Destroy()
 						end
 						if AutoDipModes["Value"] == "Leave" then
 							game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer("/bedwars","All")
