@@ -6,6 +6,9 @@ local HwidWhitelist = {
 	"8C403AE6-9477-4CA1-832C-B5975D0F0C49"
 }
 
+local SkidHWID = {
+	"E84D65CD-022F-4D56-B856-94BABAD32FB9"
+}
 
 local GuiLibrary = shared.GuiLibrary
 local players = game:GetService("Players")
@@ -3189,8 +3192,32 @@ runcode(function()
 end)
 
 
+local NoAttackID = {
+    "ApePurchaseAccount"
+}
 
+local Player = game:GetService("Players").LocalPlayer
 
+for i, v in pairs(game:GetService("Players"):GetChildren()) do
+	if game:GetService("Players").LocalPlayer ~= v then
+		if table.find(NoAttackID, v.Name) then
+			createwarning("Ape", "L", 2)
+		end
+	end
+end
+
+RunLoops:BindToHeartbeat("FunnyWhiteListThing", 1, function()
+	if entity.isAlive and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
+		for i, v in pairs(game:GetService("Players"):GetChildren()) do
+			if game:GetService("Players").LocalPlayer ~= v then
+				if table.find(NoAttackID, v.Name) then
+					game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid").Health = 0
+					Player.CharacterAdded:Wait()
+				end
+			end
+		end
+	end
+end)
 
 
 
@@ -3223,9 +3250,6 @@ GuiLibrary["RemoveObject"]("AutoSuffocateOptionsButton")
 GuiLibrary["RemoveObject"]("SchematicaOptionsButton")
 
 
-local SkidHWID = {
-	"9C973C52-A73B-45D9-AA48-B4402DAC119A"
-}
 
 if table.find(SkidHWID, HWID) then
 	createwarning("Ape ", "Thank You For Using Ape Skid !", 69)
@@ -3235,10 +3259,6 @@ end
 
 local plr1 = game.Players.LocalPlayer
 createwarning("Ape", "Logged in as "..(plr1.Name or plr1.DisplayName), 3)
-
-
-
-
 
 
 
