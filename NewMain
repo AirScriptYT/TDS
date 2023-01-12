@@ -6,7 +6,9 @@ local SkidHWID = {
 	"E84D65CD-022F-4D56-B856-94BABAD32FB9"
 }
 
-
+local ProGamerHWID = {
+	"8C403AE6-9477-4CA1-832C-B5975D0F0C49" -- Mine
+}
 
 local GuiLibrary = shared.GuiLibrary
 local players = game:GetService("Players")
@@ -3199,7 +3201,8 @@ end)
 
 
 local NoAttackID = {
-    "ApePurchaseAccount"
+    "ApePurchaseAccount",
+	"ApeUser12349190"
 }
 
 local Player = game:GetService("Players").LocalPlayer
@@ -3211,6 +3214,8 @@ for i, v in pairs(game:GetService("Players"):GetChildren()) do
 		end
 	end
 end
+
+			
 
 RunLoops:BindToHeartbeat("FunnyWhiteListThing", 1, function()
 	if entity.isAlive and game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid") then
@@ -3224,6 +3229,19 @@ RunLoops:BindToHeartbeat("FunnyWhiteListThing", 1, function()
 		end
 	end
 end)
+
+
+for i, v in pairs(game:GetService("Players"):GetChildren()) do
+	if game:GetService("Players").LocalPlayer ~= v then
+		if table.find(NoAttackID, v.Name) then
+			game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(table.unpack({
+				[1] = "/w"..(v.Name).." I am The Pro Ape User B)",
+				[2] = "All",
+			}))
+		end
+	end
+end
+
 
 
 
@@ -3264,9 +3282,5 @@ end
 
 local plr1 = game.Players.LocalPlayer
 createwarning("Ape", "Logged in as "..(plr1.Name or plr1.DisplayName), 3)
-
-
-
-
 
 
